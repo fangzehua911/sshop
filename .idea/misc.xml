@@ -12,7 +12,14 @@
         <option value="$PROJECT_DIR$/sshop-member/pom.xml" />
         <option value="$PROJECT_DIR$/sshop-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/sshop-shop/pom.xml" />
+        <option value="$PROJECT_DIR$/sshop-tools/pom.xml" />
+        <option value="$PROJECT_DIR$/sshop-order/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/sshop-tools/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

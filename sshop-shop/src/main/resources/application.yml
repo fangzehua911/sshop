@@ -1,15 +1,35 @@
 spring:
   application:
-    name: sshop-shop #·şÎñÃû³Æ
+    name: sshop-shop
   cloud:
     nacos:
       discovery:
-        server-addr: http://192.168.1.3:8848 #nacos×¢²áµØÖ·
-        group: DEFAULT_GROUP  #×¢²á×é £¨·şÎñ×é¹ÜÀí£¬²»Ç¿ÖÆ£©
+        server-addr: http://192.168.1.3:8848
+        group: DEFAULT_GROUP
       config:
-        server-addr: http://192.168.1.3:8848 #nacos×¢²áµØÖ·
-        file-extension: yaml #ÅäÖÃÎÄ¼şºó×ºÖ§³Ö txt json yam xml html Properties ¸ñÊ½ ´ó¼Ò¸ü¼ÓÏ²»¶À´
-        group: DEFAULT_GROUP # ·Ö×é £¨ÅäÖÃ×é¹ÜÀí£¬²»Ç¿ÖÆ£©
+        server-addr: http://192.168.1.3:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+
+  ##æ•°æ®åº“é…ç½®
+  datasource:
+    username: root
+    password: jika009
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.100.230.127:3306/sshop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+
+
+  profiles:
+    active: dev
+
+
+mybatis-plus:
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config.db-config:
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+
+
 
 server:
   port: 8689

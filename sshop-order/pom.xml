@@ -51,7 +51,6 @@
             <version>2.2.1.RELEASE</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -63,8 +62,13 @@
             <version>2.2.1.RELEASE</version>
         </dependency>
 
-
         <!-- 数据库相关  -->
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
         <!-- 数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <jmxConfigurator/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %5p | %t | %-15logger{15} | %m | %n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>d:/sshop/promotion/${ContainerName}/common.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>d:/applog/common-service/${ContainerName}/common.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d %5p | %t | %logger{25} - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="druid.sql.PreparedStatement">
+        <level value="error" />
+    </logger>
+
+    <logger name="druid.sql.Statement">
+        <level value="error" />
+    </logger>
+
+    <logger name="druid.sql.Statement">
+        <level value="error" />
+    </logger>
+
+    <root>
+        <level value="info" />
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>

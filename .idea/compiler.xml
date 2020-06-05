@@ -10,6 +10,9 @@
         <module name="sshop-tools" />
         <module name="sshop-order" />
         <module name="sshop-utils" />
+        <module name="sshop-promotion" />
+        <module name="sshop-payment" />
+        <module name="sshop-stock" />
         <module name="sshop-member" />
         <module name="sshop-gateway" />
       </profile>
@@ -23,7 +26,10 @@
       <module name="sshop-gateway" options="-parameters" />
       <module name="sshop-member" options="-parameters" />
       <module name="sshop-order" options="-parameters" />
+      <module name="sshop-payment" options="-parameters" />
+      <module name="sshop-promotion" options="-parameters" />
       <module name="sshop-shop" options="-parameters" />
+      <module name="sshop-stock" options="-parameters" />
       <module name="sshop-tools" options="-parameters" />
     </option>
   </component>

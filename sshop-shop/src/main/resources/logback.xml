@@ -10,7 +10,7 @@
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>d:/applog/common-service/${ContainerName}/common.log</file>
+        <file>d:/sshop/shop/${ContainerName}/common.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>d:/applog/common-service/${ContainerName}/common.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
@@ -24,9 +24,15 @@
     <logger name="druid.sql.PreparedStatement">
         <level value="error" />
     </logger>
+
     <logger name="druid.sql.Statement">
         <level value="error" />
     </logger>
+
+    <logger name="druid.sql.Statement">
+        <level value="error" />
+    </logger>
+
     <root>
         <level value="info" />
         <appender-ref ref="CONSOLE" />

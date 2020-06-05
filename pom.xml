@@ -10,10 +10,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+
         <module>sshop-gateway</module>
         <module>sshop-member</module>
         <module>sshop-shop</module>
+        <module>sshop-order</module>
+        <module>sshop-payment</module>
+        <module>sshop-promotion</module>
         <module>sshop-utils</module>
+        <module>sshop-stock</module>
+
     </modules>
 
 

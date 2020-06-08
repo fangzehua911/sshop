@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/sshop-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-member" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-member/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-order" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-payment" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-promotion" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-promotion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-shop" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-shop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sshop-stock" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sshop-stock/src/main/java" charset="UTF-8" />
   </component>
 </project>

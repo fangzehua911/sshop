@@ -17,20 +17,5 @@
         <module name="sshop-gateway" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="sshop-tools" target="1.8" />
-    </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="sshop-gateway" options="-parameters" />
-      <module name="sshop-member" options="-parameters" />
-      <module name="sshop-order" options="-parameters" />
-      <module name="sshop-payment" options="-parameters" />
-      <module name="sshop-promotion" options="-parameters" />
-      <module name="sshop-shop" options="-parameters" />
-      <module name="sshop-stock" options="-parameters" />
-      <module name="sshop-tools" options="-parameters" />
-    </option>
   </component>
 </project>

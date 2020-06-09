@@ -1,0 +1,54 @@
+package com.fzh.sshop.app.member.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fzh.sshop.app.member.entity.TBizMember;
+import com.fzh.sshop.app.member.mapper.TBizMemberMapper;
+import com.fzh.sshop.app.member.service.TBizMemberService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author fang
+ * @since 2020-06-09
+ */
+@Service
+public class TBizMemberServiceImpl extends ServiceImpl<TBizMemberMapper, TBizMember> implements TBizMemberService {
+
+
+    @Override
+    public List<TBizMember> list() {
+        QueryWrapper<TBizMember> wrapper = new QueryWrapper();
+
+        Page<TBizMember> page = new Page<>(1,2);
+        IPage<Map<String, Object>> mapIPage = baseMapper.selectMapsPage(page, wrapper);
+        System.out.println("总页数"+mapIPage.getPages());
+        System.out.println("总记录数"+mapIPage.getTotal());
+        List<Map<String, Object>> records = mapIPage.getRecords();
+        records.forEach(System.out::println);
+
+        List<TBizMember> list = baseMapper.selectList(wrapper);
+
+        return page.getRecords();
+    }
+
+
+    @Override
+    public int create(TBizMember member) {
+
+        member = new TBizMember();
+        member.setNickName("dddd");
+
+
+        return baseMapper.insert(member);
+    }
+}

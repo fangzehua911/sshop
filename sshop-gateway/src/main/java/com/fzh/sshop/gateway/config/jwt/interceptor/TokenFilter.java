@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import com.fzh.sshop.gateway.config.jwt.TokenUtil;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,13 +52,18 @@ public class TokenFilter implements GlobalFilter, Ordered{
         logger.info("TokenFilter开始............"+skipAuthUrls[0]);
 
         //跳过不需要验证的路径 Arrays.asList(skipAuthUrls).contains(exchange.getRequest().getPath())
+        Map headMap = getAllHeadersRequest(exchange.getRequest());
+
+        TokenUtil.verify(headMap.get("token").toString());
+
+
         if(true){
             return chain.filter(exchange);
         }
 
         logger.info("TokenFilter开始............"+Arrays.asList(skipAuthUrls).contains(exchange.getRequest().getPath()));
 
-        Map headMap = getAllHeadersRequest(exchange.getRequest());
+
 
         String token = headMap.get("token").toString();
         if (token == null || token.isEmpty()) {

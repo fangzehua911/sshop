@@ -18,13 +18,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://39.100.230.127:3306/sshop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
 
+
 mybatis-plus:
-  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config.db-config:
     logic-delete-value: 1
     logic-not-delete-value: 0
-
-
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 ribbon:
   ReadTimeout: 5000

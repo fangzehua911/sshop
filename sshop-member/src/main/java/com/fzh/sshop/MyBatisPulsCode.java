@@ -42,7 +42,7 @@ public class MyBatisPulsCode {
         mpg.setDataSource(dsc);
 //3、包的配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("shop");
+        pc.setModuleName("member");
         pc.setParent("com.fzh.sshop.app");
         pc.setEntity("entity");
         pc.setMapper("mapper");

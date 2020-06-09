@@ -19,7 +19,7 @@ import java.util.Date;
 @Slf4j
 public class TokenUtil {
     private static final Logger logger = LoggerFactory.getLogger(TokenUtil.class);
-    private static final long EXPIRE_TIME= 15*60*1000;
+    private static final long EXPIRE_TIME= 60*60*1000;
     private static final String TOKEN_SECRET="dffghgjhjfgherregrgsfgsdfsdgrtgrgtherherghergregergergre";  //密钥盐
 
     /**
@@ -58,6 +58,7 @@ public class TokenUtil {
             System.out.println("过期时间：      " + jwt.getExpiresAt());
             return true;
         } catch (Exception e){
+            e.printStackTrace();
             logger.error("jwt_verify：",e.getMessage());
             return false;
         }

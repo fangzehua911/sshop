@@ -2,14 +2,12 @@ package com.fzh.sshop.gateway.config.jwt.interceptor;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -37,6 +35,9 @@ public class TokenFilter implements GlobalFilter, Ordered{
 
     Logger logger = LoggerFactory.getLogger(TokenFilter.class);
 
+    @Value("${auth.skip.urls}")
+    private String[] skipAuthUrls;
+
     @Override
     public int getOrder() {
         // TODO Auto-generated method stub
@@ -46,18 +47,21 @@ public class TokenFilter implements GlobalFilter, Ordered{
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         logger.info("TokenFilter开始............");
+        logger.info("TokenFilter开始............"+exchange.getRequest().getPath());
+        logger.info("TokenFilter开始............"+skipAuthUrls[0]);
 
-        getAllParamtersRequest(exchange.getRequest());
-        getAllHeadersRequest(exchange.getRequest());
+        //跳过不需要验证的路径 Arrays.asList(skipAuthUrls).contains(exchange.getRequest().getPath())
+        if(true){
+            return chain.filter(exchange);
+        }
 
+        logger.info("TokenFilter开始............"+Arrays.asList(skipAuthUrls).contains(exchange.getRequest().getPath()));
 
-        //拦截的逻辑。根据具体业务逻辑做拦截。
-        String token = exchange.getRequest().getQueryParams().getFirst("token");
+        Map headMap = getAllHeadersRequest(exchange.getRequest());
+
+        String token = headMap.get("token").toString();
         if (token == null || token.isEmpty()) {
             logger.info("token is empty...");
-//			exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-//			return exchange.getResponse().setComplete();
-
             //设置status和body
             return Mono.defer(() -> {
                 exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);//设置status
@@ -108,6 +112,12 @@ public class TokenFilter implements GlobalFilter, Ordered{
             }
         }
         return map;
+    }
+
+
+    public static void main(String[] args) {
+        String skipAuthUrls[] =new String[]{"/member/test"};
+        System.out.println(Arrays.asList(skipAuthUrls).contains("/member/test"));
     }
 
 

@@ -16,6 +16,13 @@ public class OrderController {
     @Autowired
     private OrderServiceImpl orderService;
 
+    @GetMapping("/test9/{name}")
+    public String test9(@PathVariable("name") String name ){
+        return  "succ";
+    }
+
+
+
     @GetMapping("/test/{name}")
     public String test(@PathVariable("name") String name ){
       return  orderService.test(name);

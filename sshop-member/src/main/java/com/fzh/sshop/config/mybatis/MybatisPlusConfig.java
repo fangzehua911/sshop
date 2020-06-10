@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 
-@MapperScan("com.kuang.mapper")
+@MapperScan("com.fzh.shop.*")
 @EnableTransactionManagement
 @Configuration
 public class MybatisPlusConfig {
@@ -53,6 +53,6 @@ public class MybatisPlusConfig {
         properties.setProperty("format", "false");
         performanceInterceptor.setProperties(properties);
         return performanceInterceptor;
-
     }
+
 }

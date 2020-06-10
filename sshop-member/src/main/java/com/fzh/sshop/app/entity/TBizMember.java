@@ -1,8 +1,7 @@
-package com.fzh.sshop.app.member.entity;
+package com.fzh.sshop.app.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;

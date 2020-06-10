@@ -1,6 +1,6 @@
-package com.fzh.sshop.app.member.mapper;
+package com.fzh.sshop.app.mapper;
 
-import com.fzh.sshop.app.member.entity.TBizMember;
+import com.fzh.sshop.app.entity.TBizMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

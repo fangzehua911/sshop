@@ -1,11 +1,11 @@
-package com.fzh.sshop.app.member.service.impl;
+package com.fzh.sshop.app.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.fzh.sshop.app.member.entity.TBizMember;
-import com.fzh.sshop.app.member.mapper.TBizMemberMapper;
-import com.fzh.sshop.app.member.service.TBizMemberService;
+import com.fzh.sshop.app.entity.TBizMember;
+import com.fzh.sshop.app.mapper.TBizMemberMapper;
+import com.fzh.sshop.app.service.TBizMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

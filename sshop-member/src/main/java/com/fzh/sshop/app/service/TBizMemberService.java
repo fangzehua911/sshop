@@ -1,7 +1,7 @@
-package com.fzh.sshop.app.member.service;
+package com.fzh.sshop.app.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.fzh.sshop.app.member.entity.TBizMember;
+import com.fzh.sshop.app.entity.TBizMember;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

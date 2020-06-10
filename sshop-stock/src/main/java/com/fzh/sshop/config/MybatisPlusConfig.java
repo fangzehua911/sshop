@@ -27,13 +27,19 @@ public class MybatisPlusConfig {
         return new PaginationInterceptor();
     }
 
-    // 乐观锁插件
+    /**
+     * 乐观锁插件
+     * @return
+     */
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() {
         return new OptimisticLockerInterceptor();
     }
 
-    // 逻辑删除
+    /**
+     * 逻辑删除
+     * @return
+     */
     @Bean
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
@@ -43,11 +49,11 @@ public class MybatisPlusConfig {
      * 打印 sql
      */
     @Bean
-    @Profile({"dev","test"})// 设置 dev test 环境开启，
+    @Profile({"dev","test"})
     public PerformanceInterceptor performanceInterceptor() {
         PerformanceInterceptor performanceInterceptor =new PerformanceInterceptor();
         //格式化sql语句
-        performanceInterceptor.setMaxTime(500); //ms 设置sql执行的最大时间，如果超过了则不执行
+        performanceInterceptor.setMaxTime(500);
         performanceInterceptor.setFormat(true);
         Properties properties = new Properties();
         properties.setProperty("format", "false");

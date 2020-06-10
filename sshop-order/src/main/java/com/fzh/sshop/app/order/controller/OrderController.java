@@ -18,7 +18,7 @@ public class OrderController {
 
     @GetMapping("/test9/{name}")
     public String test9(@PathVariable("name") String name ){
-        return  "succ";
+        return  "succ"+name;
     }
 
 

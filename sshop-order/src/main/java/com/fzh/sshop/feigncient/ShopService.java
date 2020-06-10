@@ -1,6 +1,6 @@
 package com.fzh.sshop.feigncient;
 
-import com.fzh.sshop.feigncient.fallback.impl.ShopServiceFallbackFactory;
+import com.fzh.sshop.feigncient.fallback.ShopServiceFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -19,4 +19,9 @@ public interface TBizMemberService extends IService<TBizMember> {
     List<TBizMember> list();
 
     int create(TBizMember member);
+
+
+    String test(String name);
+
+
 }

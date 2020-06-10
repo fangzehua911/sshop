@@ -51,5 +51,12 @@ public class TBizMemberController {
 
         return JSONObject.toJSONString(tBizMemberService.create(null));
     }
+
+    @GetMapping("/test/{name}")
+    @ApiOperation(value = "快手用户登录" ,notes = "不存在自动注册,返回用户对象")
+    public String test(@PathVariable("name") String name){
+
+        return tBizMemberService.test(name);
+    }
 }
 

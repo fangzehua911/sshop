@@ -1,4 +1,4 @@
-package com.fzh.sshop.feigncient.fallback.impl;
+package com.fzh.sshop.feigncient.fallback;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.feigncient.ShopService;

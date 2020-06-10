@@ -1,6 +1,7 @@
 package com.fzh.sshop.app.ifeign.fallback;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fzh.sshop.app.entity.net.request.WeiXinLoginRequest;
 import com.fzh.sshop.app.ifeign.IFOrderServcie;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,11 @@ public class IFOrderServiceFallbackFactory implements FallbackFactory<IFOrderSer
             @Override
             public String test(String name) {
                 return fallback(name,throwable);
+            }
+
+            @Override
+            public String test2(WeiXinLoginRequest request) {
+                return fallback(request.getOpend_id(),throwable);
             }
         };
     }

@@ -1,12 +1,10 @@
 package com.fzh.sshop.app.order.controller;
 
+import com.fzh.sshop.app.order.entity.WeiXinLoginRequest;
 import com.fzh.sshop.app.order.service.impl.OrderServiceImpl;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
@@ -21,6 +19,10 @@ public class OrderController {
         return  "succ"+name;
     }
 
+    @PostMapping("/test10")
+    public String test10(@RequestBody WeiXinLoginRequest request ){
+        return  "succ:"+request.getOpend_id()+"";
+    }
 
 
     @GetMapping("/test/{name}")

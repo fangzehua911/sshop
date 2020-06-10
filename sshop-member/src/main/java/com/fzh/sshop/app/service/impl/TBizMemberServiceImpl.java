@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fzh.sshop.app.entity.TBizMember;
+import com.fzh.sshop.app.entity.net.request.WeiXinLoginRequest;
 import com.fzh.sshop.app.ifeign.IFOrderServcie;
 import com.fzh.sshop.app.mapper.TBizMemberMapper;
 import com.fzh.sshop.app.service.TBizMemberService;
@@ -63,4 +64,9 @@ public class TBizMemberServiceImpl extends ServiceImpl<TBizMemberMapper, TBizMem
         return ifOrderServcie.test(name);
     }
 
+
+    @Override
+    public String test2(WeiXinLoginRequest request) {
+        return ifOrderServcie.test2(request);
+    }
 }

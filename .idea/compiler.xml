@@ -9,6 +9,7 @@
         <module name="sshop-shop" />
         <module name="sshop-tools" />
         <module name="sshop-order" />
+        <module name="sshop-admin" />
         <module name="sshop-utils" />
         <module name="sshop-promotion" />
         <module name="sshop-payment" />
@@ -20,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sshop-admin" options="-parameters" />
       <module name="sshop-gateway" options="-parameters" />
       <module name="sshop-member" options="-parameters" />
       <module name="sshop-order" options="-parameters" />

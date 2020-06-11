@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/sshop-payment/pom.xml" />
         <option value="$PROJECT_DIR$/sshop-promotion/pom.xml" />
         <option value="$PROJECT_DIR$/sshop-stock/pom.xml" />
+        <option value="$PROJECT_DIR$/sshop-admin/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

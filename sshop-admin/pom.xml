@@ -8,34 +8,16 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.fzh.sshop</groupId>
-    <artifactId>sshop-member</artifactId>
+    <groupId>com.fzh.sshop.admin</groupId>
+    <artifactId>sshop-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sshop-member</name>
-    <description>Demo project for Spring Boot</description>
+    <name>sshop-admin</name>
+    <description>后台管理</description>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <docker.aliyun.registry>registry.cn-hangzhou.aliyuncs.com</docker.aliyun.registry>
-        <docker.image.prefix>biboheart</docker.image.prefix>
-        <dockerfile.maven.version>1.4.10</dockerfile.maven.version>
-
     </properties>
-
-    <scm>
-
-        <url>http://xxxx/nexus/content/repositories/releases/</url>
-        <!--connection, developerConnection: 都是连接字符串，其中后者是具有write权限的scm连接 -->
-        <!--需要打包项目的git地址-->
-        <developerConnection>scm:git:https://github.com/fangzehua911/sshop.git</developerConnection>
-        <!--需要打包项目的git地址-->
-        <connection>scm:git:https://github.com/fangzehua911/sshop.git</connection>
-
-        <tag>HEAD</tag>
-    </scm>
-
 
     <dependencies>
         <dependency>
@@ -167,73 +149,11 @@
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.fzh.sshop.MemberApplication</mainClass>
-                    <executable>true</executable>
-                </configuration>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>${project.artifactId}</artifactId>
-                                    <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!--Docker maven plugin-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile.maven.version}</version>
-                <configuration>
-                    <repository>${docker.aliyun.registry}/${docker.image.prefix}/${project.artifactId}</repository>
-                    <contextDirectory>./</contextDirectory>
-                    <tag>${project.version}</tag>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-            <!-- 发布插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <!--git用户名-->
-                    <username>442947949@qq.com</username>
-                    <!--git密码-->
-                    <password>fangzehua1</password>
-                    <!--mvn目标指令-->
-                    <goals>-f pom.xml deploy</goals>
-                </configuration>
             </plugin>
         </plugins>
-
-
-        <resources>
-            <resource>
-                <directory>src/main/java</directory><!--所在的目录-->
-                <includes><!--包括目录下的.properties,.xml文件都会扫描到-->
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
-
-
-
-   </build>
+    </build>
 
 </project>

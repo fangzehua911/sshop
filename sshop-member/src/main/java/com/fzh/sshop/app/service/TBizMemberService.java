@@ -1,6 +1,4 @@
 package com.fzh.sshop.app.service;
-
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.fzh.sshop.app.entity.TBizMember;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fzh.sshop.app.entity.net.request.WeiXinLoginRequest;
@@ -21,10 +19,10 @@ public interface TBizMemberService extends IService<TBizMember> {
 
     int create(TBizMember member);
 
-
     String test(String name);
 
     String test2(WeiXinLoginRequest request);
 
+    String test3();
 
 }

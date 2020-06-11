@@ -65,5 +65,12 @@ public class TBizMemberController {
         return tBizMemberService.test2(request);
     }
 
+
+    @GetMapping("/test3")
+    @ApiOperation(value = "快手用户登录" ,notes = "不存在自动注册,返回用户对象")
+    public String test3(){
+        return tBizMemberService.test3();
+    }
+
 }
 

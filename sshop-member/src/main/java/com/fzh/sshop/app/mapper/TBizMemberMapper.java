@@ -1,7 +1,7 @@
 package com.fzh.sshop.app.mapper;
 
-import com.fzh.sshop.app.entity.TBizMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.fzh.sshop.app.entity.TBizMember;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -14,5 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TBizMemberMapper extends BaseMapper<TBizMember> {
+
+    String getMembers(int id);
 
 }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.util.Properties;
 
 
-@MapperScan("com.fzh.shop.*")
 @EnableTransactionManagement
 @Configuration
 public class MybatisPlusConfig {
@@ -54,5 +54,13 @@ public class MybatisPlusConfig {
         performanceInterceptor.setProperties(properties);
         return performanceInterceptor;
     }
+
+//    @Bean
+//    public MapperScannerConfigurer mapperScannerConfigurer(){
+//        MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
+//        scannerConfigurer.setBasePackage("com.fzh.sshop.app.mapper");
+//        return scannerConfigurer;
+//    }
+
 
 }

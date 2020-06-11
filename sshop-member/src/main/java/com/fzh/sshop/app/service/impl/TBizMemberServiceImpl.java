@@ -29,7 +29,8 @@ public class TBizMemberServiceImpl extends ServiceImpl<TBizMemberMapper, TBizMem
     @Autowired
     private IFOrderServcie ifOrderServcie;
 
-
+    @Autowired
+    private TBizMemberMapper tBizMemberMapper;
 
     @Override
     public List<TBizMember> list() {
@@ -68,5 +69,10 @@ public class TBizMemberServiceImpl extends ServiceImpl<TBizMemberMapper, TBizMem
     @Override
     public String test2(WeiXinLoginRequest request) {
         return ifOrderServcie.test2(request);
+    }
+
+    @Override
+    public String test3() {
+        return tBizMemberMapper.getMembers(4);
     }
 }

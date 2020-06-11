@@ -53,12 +53,6 @@ public class MybatisPlusConfig {
         return performanceInterceptor;
     }
 
-//    @Bean
-//    public MapperScannerConfigurer mapperScannerConfigurer(){
-//        MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
-//        scannerConfigurer.setBasePackage("com.fzh.sshop.app.mapper");
-//        return scannerConfigurer;
-//    }
 
 
 }

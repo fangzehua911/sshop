@@ -1,8 +1,8 @@
 package com.fzh.sshop.admin.service.impl;
 
-import com.fzh.sshop.admin.entity.TSysUser;
-import com.fzh.sshop.admin.mapper.TSysUserMapper;
-import com.fzh.sshop.admin.service.TSysUserService;
+import com.fzh.sshop.admin.entity.User;
+import com.fzh.sshop.admin.mapper.UserMapper;
+import com.fzh.sshop.admin.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-11
  */
 @Service
-public class TSysUserServiceImpl extends ServiceImpl<TSysUserMapper, TSysUser> implements TSysUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
 }

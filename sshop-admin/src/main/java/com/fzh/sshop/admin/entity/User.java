@@ -1,11 +1,8 @@
 package com.fzh.sshop.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,7 +22,8 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="TSysUser对象", description="")
-public class TSysUser implements Serializable {
+@TableName("t_sys_user")
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -58,6 +56,7 @@ public class TSysUser implements Serializable {
     private Integer status;
 
     @ApiModelProperty(value = "操作时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date createTime;
 
     @ApiModelProperty(value = "操作时间")

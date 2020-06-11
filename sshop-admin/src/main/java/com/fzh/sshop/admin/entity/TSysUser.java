@@ -29,14 +29,13 @@ public class TSysUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     @ApiModelProperty(value = "用户ID")
     private String userId;
 
-    @ApiModelProperty(value = "用户名字")
+    @ApiModelProperty(value = "用户昵称")
     private String username;
 
     @ApiModelProperty(value = "用户手机号")
@@ -58,6 +57,7 @@ public class TSysUser implements Serializable {
     private Integer status;
 
     @ApiModelProperty(value = "操作时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date createTime;
 
     @ApiModelProperty(value = "操作时间")

@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -56,14 +57,14 @@ public class User implements Serializable {
     private Integer status;
 
     @ApiModelProperty(value = "操作时间")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
+    @TableField(update = "now()")
+    private LocalDateTime createTime;
 
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "操作时间")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
+    @TableField(update = "now()")
+    private LocalDateTime updateTime;
 
 
 }

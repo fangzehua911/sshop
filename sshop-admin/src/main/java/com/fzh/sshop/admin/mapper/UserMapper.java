@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @author fang
  * @since 2020-06-11
  */
-public interface TSysUserMapper extends BaseMapper<TSysUser> {
+public interface UserMapper extends BaseMapper<User> {
 
 }

@@ -8,7 +8,7 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.fzh.sshop.admin</groupId>
+    <groupId>com.fzh.sshop</groupId>
     <artifactId>sshop-admin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sshop-admin</name>

@@ -19,7 +19,7 @@
         <module>sshop-promotion</module>
         <module>sshop-utils</module>
         <module>sshop-stock</module>
-
+        <module>sshop-admin</module>
     </modules>
 
 

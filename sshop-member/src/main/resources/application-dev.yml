@@ -14,23 +14,23 @@ spring:
   ##数据库配置
   datasource:
     username: root
-    password: jika009
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.100.230.127:3306/sshop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    url: jdbc:mysql://127.0.0.1:3306/sshop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
 
-
-  rabbitmq:
-    host: 39.100.230.127
-    port: 5672
-    username: fzh
-    password: fzh123
-    publisher-confirms: true #发送回调
-    publisher-returns: true  #失败回调
-    listener:
-      max-concurrency: 100
-      acknowledge-mode: manual
-    template:
-      mandatory: true
+#
+#  rabbitmq:
+#    host: 39.100.230.127
+#    port: 5672
+#    username: fzh
+#    password: fzh123
+#    publisher-confirms: true #发送回调
+#    publisher-returns: true  #失败回调
+#    listener:
+#      max-concurrency: 100
+#      acknowledge-mode: manual
+#    template:
+#      mandatory: true
 
 
 mybatis-plus:

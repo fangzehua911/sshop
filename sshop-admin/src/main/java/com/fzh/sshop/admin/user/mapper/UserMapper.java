@@ -1,7 +1,6 @@
-package com.fzh.sshop.admin.mapper;
-
-import com.fzh.sshop.admin.entity.User;
+package com.fzh.sshop.admin.user.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.fzh.sshop.admin.user.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @author fang
  * @since 2020-06-11
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }

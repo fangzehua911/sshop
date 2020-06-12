@@ -1,11 +1,11 @@
-package com.fzh.sshop.admin.service.impl;
+package com.fzh.sshop.admin.login.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.fzh.sshop.admin.entity.User;
-import com.fzh.sshop.admin.entity.net.SuperResponse;
-import com.fzh.sshop.admin.entity.net.request.LoginRequest;
-import com.fzh.sshop.admin.mapper.UserMapper;
-import com.fzh.sshop.admin.service.LoginService;
+import com.fzh.sshop.admin.login.service.LoginService;
+import com.fzh.sshop.admin.req.admin.LoginRequest;
+import com.fzh.sshop.admin.user.entity.User;
+import com.fzh.sshop.admin.user.mapper.UserMapper;
+import com.fzh.sshop.request.SuperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,6 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UserMapper userMapper;
-
 
     @Override
     public SuperResponse userLogin(LoginRequest request) {
@@ -28,12 +27,11 @@ public class LoginServiceImpl implements LoginService {
             response.setMessage("账号或密码错误");
             return response;
         }
-        if(!user.equals(request.getPassword())){
+        if(!request.getPassword().equals(user.getPassword())){
             response.setCode(-1002);
             response.setMessage("登录密码有误");
             return response;
         }
-
         response.setItem(user);
         return response;
     }

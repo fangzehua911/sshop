@@ -1,4 +1,5 @@
-package com.fzh.sshop.admin.entity.net.request;
+package com.fzh.sshop.admin.req.admin;
+
 
 import javax.validation.constraints.NotBlank;
 

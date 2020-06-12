@@ -1,10 +1,9 @@
-package com.fzh.sshop.admin.controller;
+package com.fzh.sshop.admin.login.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fzh.sshop.admin.entity.net.SuperResponse;
-import com.fzh.sshop.admin.entity.net.request.LoginRequest;
-import com.fzh.sshop.admin.service.LoginService;
-import com.fzh.sshop.admin.service.impl.LoginServiceImpl;
+import com.fzh.sshop.admin.login.service.impl.LoginServiceImpl;
+import com.fzh.sshop.admin.req.admin.LoginRequest;
+import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
-
  * @author fang
  * @since 2020-06-11
  */
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/admin/login")
 public class LoginController {
 
     @Autowired
@@ -32,7 +30,6 @@ public class LoginController {
         SuperResponse response = loginService.userLogin(request);
         return JSONObject.toJSONString(response);
     }
-
 
 
 }

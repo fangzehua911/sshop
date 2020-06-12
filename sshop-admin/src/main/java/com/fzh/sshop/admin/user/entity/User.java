@@ -1,14 +1,15 @@
-package com.fzh.sshop.admin.entity;
+package com.fzh.sshop.admin.user.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-
-import java.util.Date;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -56,8 +57,10 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "操作时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "操作时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;

@@ -42,7 +42,7 @@ public class MyBatisPulsCode {
         mpg.setDataSource(dsc);
 //3、包的配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("admin");
+        pc.setModuleName("admin.user");
         pc.setParent("com.fzh.sshop");
         pc.setEntity("entity");
         pc.setMapper("mapper");
@@ -51,7 +51,7 @@ public class MyBatisPulsCode {
         mpg.setPackageInfo(pc);
 //4、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("t_sys_user","goods"); // 设置要映射的表名
+        strategy.setInclude("t_sys_user"); // 设置要映射的表名
                 strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true); // 自动lombok；

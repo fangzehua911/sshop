@@ -1,4 +1,4 @@
-package com.fzh.sshop.admin.req.admin;
+package com.fzh.sshop.admin.req;
 
 import com.fzh.sshop.request.SuperRequest;
 import lombok.Data;

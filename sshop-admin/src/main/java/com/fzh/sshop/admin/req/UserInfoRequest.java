@@ -1,4 +1,4 @@
-package com.fzh.sshop.admin.req.admin;
+package com.fzh.sshop.admin.req;
 
 import lombok.Data;
 

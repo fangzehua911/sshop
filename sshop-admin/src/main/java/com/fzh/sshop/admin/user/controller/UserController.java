@@ -2,12 +2,11 @@ package com.fzh.sshop.admin.user.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.fzh.sshop.admin.req.admin.UserInfoRequest;
-import com.fzh.sshop.admin.req.admin.UserListRequest;
+import com.fzh.sshop.admin.req.UserInfoRequest;
+import com.fzh.sshop.admin.req.UserListRequest;
 import com.fzh.sshop.admin.user.service.impl.UserServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

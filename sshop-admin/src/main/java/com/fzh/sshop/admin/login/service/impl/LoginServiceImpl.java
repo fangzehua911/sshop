@@ -2,7 +2,7 @@ package com.fzh.sshop.admin.login.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fzh.sshop.admin.login.service.LoginService;
-import com.fzh.sshop.admin.req.admin.LoginRequest;
+import com.fzh.sshop.admin.req.LoginRequest;
 import com.fzh.sshop.admin.user.entity.User;
 import com.fzh.sshop.admin.user.mapper.UserMapper;
 import com.fzh.sshop.request.SuperResponse;

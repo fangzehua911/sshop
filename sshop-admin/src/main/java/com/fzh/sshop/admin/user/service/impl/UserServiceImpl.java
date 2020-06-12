@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import com.fzh.sshop.admin.req.admin.UserInfoRequest;
-import com.fzh.sshop.admin.req.admin.UserListRequest;
+import com.fzh.sshop.admin.req.UserInfoRequest;
+import com.fzh.sshop.admin.req.UserListRequest;
 import com.fzh.sshop.admin.user.entity.User;
 import com.fzh.sshop.admin.user.mapper.UserMapper;
 import com.fzh.sshop.admin.user.service.UserService;
@@ -16,14 +16,11 @@ import com.fzh.sshop.utils.IdUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 /**
  * <p>
- *  服务实现类
+ *  系统用户服务实现类
  * </p>
  *
  * @author fang

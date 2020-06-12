@@ -2,7 +2,7 @@ package com.fzh.sshop.admin.login.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.login.service.impl.LoginServiceImpl;
-import com.fzh.sshop.admin.req.admin.LoginRequest;
+import com.fzh.sshop.admin.req.LoginRequest;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

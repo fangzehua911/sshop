@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.service.impl.LoginServiceImpl;
 import com.fzh.sshop.admin.req.LoginRequest;
 import com.fzh.sshop.request.SuperResponse;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/admin/login")
+@Api(value = "后台管理",tags = {"admin-登录"})
 public class LoginController {
 
     @Autowired

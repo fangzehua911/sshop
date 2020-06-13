@@ -7,6 +7,8 @@ import com.fzh.sshop.admin.service.impl.DeptServiceImpl;
 import com.fzh.sshop.admin.service.impl.RoleServiceImpl;
 import com.fzh.sshop.request.SuperRequest;
 import com.fzh.sshop.request.SuperResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/admin/dept")
+@Api(value = "后台管理",tags = {"admin-部门"})
 public class DeptController {
     @Autowired
     private DeptServiceImpl deptService;

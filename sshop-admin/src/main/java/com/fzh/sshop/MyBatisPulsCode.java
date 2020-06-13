@@ -51,7 +51,7 @@ public class MyBatisPulsCode {
         mpg.setPackageInfo(pc);
 //4、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("t_sys_dept"); // 设置要映射的表名
+        strategy.setInclude("t_sys_menu"); // 设置要映射的表名
                 strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true); // 自动lombok；

@@ -49,7 +49,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         IPage<User> mapIPage = baseMapper.selectPage(pages, wrapper);
         List<User> list = mapIPage.getRecords();
         for(User user:list){
-            user.setDeptName(deptMapper.selectById(user.getDeptId()).getName());
+            user.setDeptName(deptMapper.selectById(user.getDeptId()).getDeptName());
         }
         response.setItems(list);
         response.setTotals(mapIPage.getTotal());

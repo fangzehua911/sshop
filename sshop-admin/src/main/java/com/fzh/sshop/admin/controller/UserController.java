@@ -7,6 +7,7 @@ import com.fzh.sshop.admin.req.UserListRequest;
 import com.fzh.sshop.admin.req.UserRequest;
 import com.fzh.sshop.admin.service.impl.UserServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/admin/user")
+@Api(value = "后台管理",tags = {"admin-用户"})
 public class UserController {
 
 

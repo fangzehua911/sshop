@@ -17,6 +17,8 @@ import com.fzh.sshop.request.SuperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  * 部门表 服务实现类
@@ -59,7 +61,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
     public SuperResponse insert(DeptInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Dept dept = new Dept();
-        dept.setName(request.getName());
+        dept.setDeptName(request.getName());
         dept.setParentId(request.getParentId());
         dept.setLevel(request.getLevel());
         dept.setRemark(request.getRemark());
@@ -72,16 +74,17 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
        return response;
     }
 
+
     @Override
     public SuperResponse update(DeptInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Dept dept = new Dept();
-        dept.setId(request.getId());
-        dept.setName(request.getName());
+        dept.setDeptId(request.getId());
+        dept.setDeptName(request.getName());
         dept.setParentId(request.getParentId());
         dept.setLevel(request.getLevel());
         dept.setRemark(request.getRemark());
-        int rows =  baseMapper.insert(dept);
+        int rows =  baseMapper.updateById(dept);
         if(rows==0){
             response.setMessage("修改失败!");
             response.setCode(-1000);
@@ -89,6 +92,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
         }
         return response;
     }
+
 
     @Override
     public SuperResponse delete(DeptRequest request) {
@@ -110,4 +114,5 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
         return response;
 
     }
+
 }

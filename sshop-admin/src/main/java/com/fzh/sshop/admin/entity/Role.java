@@ -3,6 +3,7 @@ package com.fzh.sshop.admin.entity;
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -41,10 +42,10 @@ public class Role implements Serializable {
     private Integer status;
 
     @TableField(fill = FieldFill.INSERT)
-    private LocalDate createTime;
+    private LocalDateTime createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDate updateTime;
+    private LocalDateTime updateTime;
 
 
 }

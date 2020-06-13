@@ -1,11 +1,14 @@
 package com.fzh.sshop.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,7 +18,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 部门表
+ * 
  * </p>
  *
  * @author fang
@@ -24,27 +27,30 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="TSysDept对象", description="部门表")
-@TableName("t_sys_dept")
-public class Dept implements Serializable {
+@ApiModel(value="TSysMenu对象", description="")
+public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "部门ID")
-    @TableId(value = "dept_id", type = IdType.AUTO)
-    private Integer deptId;
+    @TableId(value = "menu_id", type = IdType.AUTO)
+    private Integer menuId;
 
-    @ApiModelProperty(value = "部门名称")
-    private String deptName;
+    private Integer menuPid;
 
-    @ApiModelProperty(value = "上级ID")
-    private Integer parentId;
+    private String menuName;
 
-    @ApiModelProperty(value = "层级")
+    private String menuCode;
+
     private Integer level;
 
-    @ApiModelProperty(value = "备注")
-    private String remark;
+    private String menuUrl;
+
+    private String menuIcon;
+
+    private Integer orderno;
+
+    @ApiModelProperty(value = "0可用1不可用")
+    private Integer status;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

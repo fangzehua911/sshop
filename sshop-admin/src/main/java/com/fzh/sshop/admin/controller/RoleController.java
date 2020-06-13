@@ -7,6 +7,7 @@ import com.fzh.sshop.admin.req.RoleListRequest;
 import com.fzh.sshop.admin.req.RoleRequest;
 import com.fzh.sshop.admin.service.impl.RoleServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/admin/role")
+@Api(value = "后台管理",tags = {"admin-角色"})
 public class RoleController {
 
     @Autowired

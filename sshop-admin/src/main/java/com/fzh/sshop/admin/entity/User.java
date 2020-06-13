@@ -1,9 +1,6 @@
 package com.fzh.sshop.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -61,14 +58,12 @@ public class User implements Serializable {
     @ApiModelProperty(value = "用户的状态 1 ：正常  0：冻结 2：删除")
     private Integer status;
 
-    @ApiModelProperty(value = "操作时间")
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @TableField(update = "now()")
+    @ApiModelProperty(value = "添加时间")
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "操作时间")
-    @TableField(update = "now()")
+    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
 

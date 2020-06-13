@@ -61,8 +61,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         role.setRoleName(role.getRoleName());
         role.setStatus(request.getStatus());
         role.setRoleCode(role.getRoleCode());
-        role.setCreateTime(LocalDate.now());
-        role.setUpdateTime(LocalDate.now());
         baseMapper.insert(role);
         return response;
     }
@@ -76,7 +74,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         role.setRoleName(role.getRoleName());
         role.setStatus(request.getStatus());
         role.setRoleCode(role.getRoleCode());
-        role.setUpdateTime(LocalDate.now());
         int rows = baseMapper.updateById(role);
         if(rows==0){
             response.setMessage("修改失败!");

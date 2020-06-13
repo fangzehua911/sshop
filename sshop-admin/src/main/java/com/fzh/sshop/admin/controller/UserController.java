@@ -1,10 +1,10 @@
-package com.fzh.sshop.admin.user.controller;
+package com.fzh.sshop.admin.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.req.UserInfoRequest;
 import com.fzh.sshop.admin.req.UserListRequest;
-import com.fzh.sshop.admin.user.service.impl.UserServiceImpl;
+import com.fzh.sshop.admin.service.impl.UserServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,22 +43,21 @@ public class UserController {
     }
 
     @PostMapping("/insert")
-    @ApiOperation(value = "添加用户" ,notes = "")
+    @ApiOperation(value = "用户添加" ,notes = "")
     public String delete(@Valid @RequestBody UserInfoRequest request){
         SuperResponse response = userService.insert(request);
         return JSONObject.toJSONString(response);
     }
 
-
     @PostMapping("/update")
-    @ApiOperation(value = "修改用户" ,notes = "")
+    @ApiOperation(value = "用户修改" ,notes = "")
     public String update(@Valid @RequestBody UserInfoRequest request){
         SuperResponse response = userService.update(request);
         return JSONObject.toJSONString(response);
     }
 
     @GetMapping("/delete/{userId}")
-    @ApiOperation(value = "删除用户" ,notes = "")
+    @ApiOperation(value = "用户删除" ,notes = "")
     public String delete(@Valid @PathVariable("userId") String userId ){
         SuperResponse response = userService.delete(userId);
         return JSONObject.toJSONString(response);

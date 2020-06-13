@@ -42,7 +42,7 @@ public class MyBatisPulsCode {
         mpg.setDataSource(dsc);
 //3、包的配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("admin.user");
+        pc.setModuleName("admin");
         pc.setParent("com.fzh.sshop");
         pc.setEntity("entity");
         pc.setMapper("mapper");
@@ -51,15 +51,15 @@ public class MyBatisPulsCode {
         mpg.setPackageInfo(pc);
 //4、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("t_sys_user"); // 设置要映射的表名
+        strategy.setInclude("t_sys_role","t_sys_role_user"); // 设置要映射的表名
                 strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true); // 自动lombok；
         strategy.setLogicDeleteFieldName("deleted");
+
 // 自动填充配置
         TableFill gmtCreate = new TableFill("create_time", FieldFill.INSERT);
-        TableFill gmtModified = new TableFill("update_time",
-                FieldFill.INSERT_UPDATE);
+        TableFill gmtModified = new TableFill("update_time", FieldFill.INSERT_UPDATE);
         ArrayList<TableFill> tableFills = new ArrayList<>();
         tableFills.add(gmtCreate);
         tableFills.add(gmtModified);
@@ -71,4 +71,5 @@ public class MyBatisPulsCode {
         mpg.setStrategy(strategy);
         mpg.execute(); //执行
     }
+
 }

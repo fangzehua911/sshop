@@ -1,21 +1,24 @@
-package com.fzh.sshop.admin.user.service.impl;
+package com.fzh.sshop.admin.service.impl;
 
 import com.alibaba.nacos.common.utils.Md5Utils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
+import com.fzh.sshop.admin.entity.RoleUser;
+import com.fzh.sshop.admin.entity.User;
+import com.fzh.sshop.admin.mapper.RoleUserMapper;
+import com.fzh.sshop.admin.mapper.UserMapper;
 import com.fzh.sshop.admin.req.UserInfoRequest;
 import com.fzh.sshop.admin.req.UserListRequest;
-import com.fzh.sshop.admin.user.entity.User;
-import com.fzh.sshop.admin.user.mapper.UserMapper;
-import com.fzh.sshop.admin.user.service.UserService;
+import com.fzh.sshop.admin.service.UserService;
 import com.fzh.sshop.request.SuperResponse;
 import com.fzh.sshop.utils.IdUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
 import java.time.LocalDateTime;
 
 /**
@@ -28,6 +31,9 @@ import java.time.LocalDateTime;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
+    @Autowired
+    private RoleUserServiceImpl roleUserService;
 
 
     @Override
@@ -49,9 +55,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public SuperResponse find(String userId) {
         SuperResponse response = new SuperResponse();
-
         QueryWrapper<User> wrapper = new QueryWrapper();
-
         User user  = baseMapper.selectOne(wrapper.eq("user_id",userId));
         if(null==user){
             response.setMessage("用户不存在!");
@@ -84,6 +88,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             String roles[] = request.getRoles().split(",");
             for(String role_id:roles){
                 //TODO 角色赋权
+
             }
 
             baseMapper.insert(user);
@@ -113,8 +118,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setRemark(request.getRemark());
             user.setUpdateTime(LocalDateTime.now());
             String roles[] = request.getRoles().split(",");
+            RoleUser userRole = null;
+            //TODO 删除之前的角色
+            roleUserService.deleteRoleUser(request.getUserId());
             for(String role_id:roles){
-                //TODO 角色赋权
+                //TODO 重新角色赋权
+                userRole = new RoleUser();
+                userRole.setUserId(user.getUserId());
+                userRole.setRoleId(Integer.parseInt(role_id));
+                roleUserService.insertRoleUser(userRole);
             }
 
             baseMapper.update(user,wrapper);
@@ -136,6 +148,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             response.setCode(-1000);
             return response;
         }
+        //
+        //TODO 删除关联的角色
+        roleUserService.deleteRoleUser(userId);
         return response;
     }
 

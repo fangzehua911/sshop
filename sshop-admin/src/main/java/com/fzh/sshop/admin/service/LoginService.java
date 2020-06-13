@@ -1,4 +1,4 @@
-package com.fzh.sshop.admin.login.service;
+package com.fzh.sshop.admin.service;
 
 
 import com.fzh.sshop.admin.req.LoginRequest;

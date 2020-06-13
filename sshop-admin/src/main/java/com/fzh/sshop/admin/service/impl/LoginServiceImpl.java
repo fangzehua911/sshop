@@ -1,10 +1,10 @@
-package com.fzh.sshop.admin.login.service.impl;
+package com.fzh.sshop.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.fzh.sshop.admin.login.service.LoginService;
+import com.fzh.sshop.admin.entity.User;
+import com.fzh.sshop.admin.mapper.UserMapper;
 import com.fzh.sshop.admin.req.LoginRequest;
-import com.fzh.sshop.admin.user.entity.User;
-import com.fzh.sshop.admin.user.mapper.UserMapper;
+import com.fzh.sshop.admin.service.LoginService;
 import com.fzh.sshop.request.SuperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.fzh.sshop.admin.user.mapper;
+package com.fzh.sshop.admin.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.fzh.sshop.admin.user.entity.User;
+import com.fzh.sshop.admin.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

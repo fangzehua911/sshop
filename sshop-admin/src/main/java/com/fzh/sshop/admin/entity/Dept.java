@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 部门表
  * </p>
  *
  * @author fang
@@ -22,20 +22,27 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="TSysRole对象", description="")
-@TableName("t_sys_role")
-public class Role implements Serializable {
+@ApiModel(value="TSysDept对象", description="部门表")
+@TableName("t_sys_dept")
+public class Dept implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "role_id", type = IdType.AUTO)
-    private Integer roleId;
+    @ApiModelProperty(value = "部门ID")
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
-    @ApiModelProperty(value = "角色名称")
-    private String roleName;
+    @ApiModelProperty(value = "部门名称")
+    private String name;
 
-    @ApiModelProperty(value = "0可用 -1 停用")
-    private Integer status;
+    @ApiModelProperty(value = "上级ID")
+    private Integer parentId;
+
+    @ApiModelProperty(value = "层级")
+    private Integer level;
+
+    @ApiModelProperty(value = "备注")
+    private String remark;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDate createTime;

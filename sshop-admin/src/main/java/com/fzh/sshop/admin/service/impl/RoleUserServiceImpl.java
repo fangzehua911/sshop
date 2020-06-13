@@ -2,11 +2,9 @@ package com.fzh.sshop.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fzh.sshop.admin.entity.RoleUser;
-import com.fzh.sshop.admin.entity.User;
 import com.fzh.sshop.admin.mapper.RoleUserMapper;
 import com.fzh.sshop.admin.service.RoleUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.fzh.sshop.request.SuperResponse;
 import org.springframework.stereotype.Service;
 
 /**

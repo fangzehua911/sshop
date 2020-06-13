@@ -4,8 +4,6 @@ package com.fzh.sshop.admin.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.req.RoleInfoRequest;
 import com.fzh.sshop.admin.req.RoleListRequest;
-import com.fzh.sshop.admin.req.UserInfoRequest;
-import com.fzh.sshop.admin.req.UserListRequest;
 import com.fzh.sshop.admin.service.impl.RoleServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
@@ -38,7 +36,7 @@ public class RoleController {
 
     @GetMapping("/find/{roleId}")
     @ApiOperation(value = "角色详情" ,notes = "")
-    public String find(@Valid @PathVariable("roleId") String  roleId ){
+    public String find(@Valid @PathVariable("roleId") Integer  roleId ){
         SuperResponse response = roleService.find(roleId);
         return JSONObject.toJSONString(response);
     }
@@ -59,9 +57,11 @@ public class RoleController {
 
     @GetMapping("/delete/{roleId}")
     @ApiOperation(value = "角色删除" ,notes = "")
-    public String delete(@Valid @PathVariable("roleId") String roleId ){
+    public String delete(@Valid @PathVariable("roleId") Integer roleId ){
         SuperResponse response = roleService.delete(roleId);
         return JSONObject.toJSONString(response);
     }
+
+
 }
 

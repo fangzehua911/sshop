@@ -53,7 +53,10 @@ public class User implements Serializable {
     private String remark;
 
     @ApiModelProperty(value = "用户部门表")
-    private Integer depId;
+    private Integer deptId;
+
+    @TableField(exist = false)
+    private String deptName;
 
     @ApiModelProperty(value = "用户的状态 1 ：正常  0：冻结 2：删除")
     private Integer status;

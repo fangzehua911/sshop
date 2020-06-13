@@ -4,6 +4,7 @@ import com.fzh.sshop.admin.entity.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.fzh.sshop.admin.req.RoleInfoRequest;
 import com.fzh.sshop.admin.req.RoleListRequest;
+import com.fzh.sshop.admin.req.RoleRequest;
 import com.fzh.sshop.admin.req.UserInfoRequest;
 import com.fzh.sshop.request.SuperResponse;
 
@@ -17,14 +18,14 @@ import com.fzh.sshop.request.SuperResponse;
  */
 public interface RoleService extends IService<Role> {
 
-    SuperResponse roleList(RoleListRequest request);
+    SuperResponse list(RoleListRequest request);
 
-    SuperResponse find(Integer roleId);
+    SuperResponse find(RoleRequest request);
 
     SuperResponse insert(RoleInfoRequest request);
 
     SuperResponse update(RoleInfoRequest request);
 
-    SuperResponse delete(Integer roleId);
+    SuperResponse delete(RoleRequest request);
 
 }

@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fzh.sshop.admin.entity.RoleUser;
 import com.fzh.sshop.admin.entity.User;
+import com.fzh.sshop.admin.mapper.DeptMapper;
 import com.fzh.sshop.admin.mapper.RoleUserMapper;
 import com.fzh.sshop.admin.mapper.UserMapper;
 import com.fzh.sshop.admin.req.UserInfoRequest;
 import com.fzh.sshop.admin.req.UserListRequest;
+import com.fzh.sshop.admin.req.UserRequest;
 import com.fzh.sshop.admin.service.UserService;
 import com.fzh.sshop.request.SuperResponse;
 import com.fzh.sshop.utils.IdUtils;
@@ -20,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -34,29 +37,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Autowired
     private RoleUserServiceImpl roleUserService;
+    @Autowired
+    private DeptMapper deptMapper;
 
 
     @Override
-    public SuperResponse userList(UserListRequest request) {
+    public SuperResponse list(UserListRequest request) {
         SuperResponse response = new SuperResponse();
-
         QueryWrapper<User> wrapper = new QueryWrapper();
-
         Page<User> pages = new Page<>(request.getPageNo(),request.getPageSize());
-
         IPage<User> mapIPage = baseMapper.selectPage(pages, wrapper);
-
-        response.setItems(mapIPage.getRecords());
+        List<User> list = mapIPage.getRecords();
+        for(User user:list){
+            user.setDeptName(deptMapper.selectById(user.getDeptId()).getName());
+        }
+        response.setItems(list);
         response.setTotals(mapIPage.getTotal());
         return response;
     }
 
 
     @Override
-    public SuperResponse find(String userId) {
+    public SuperResponse find(UserRequest request) {
         SuperResponse response = new SuperResponse();
         QueryWrapper<User> wrapper = new QueryWrapper();
-        User user  = baseMapper.selectOne(wrapper.eq("user_id",userId));
+        User user  = baseMapper.selectOne(wrapper.eq("user_id",request.getUserId()));
         if(null==user){
             response.setMessage("用户不存在!");
             response.setCode(-1000);
@@ -78,7 +83,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setUserId(user_id);
             user.setUsername(request.getUsername());
             user.setPassword(Md5Utils.getMD5(request.getPassword(),"utf-8"));
-            user.setDepId(request.getDepId());
+            user.setDeptId(request.getDeptId());
             user.setMail(request.getMail());
             user.setStatus(request.getStatus());
             user.setTelephone(request.getTelephone());
@@ -111,7 +116,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setUserId(request.getUserId());
             user.setUsername(request.getUsername());
             //user.setPassword(Md5Utils.getMD5(request.getPassword(),"utf-8"));
-            user.setDepId(request.getDepId());
+            user.setDeptId(request.getDeptId());
             user.setMail(request.getMail());
             user.setStatus(request.getStatus());
             user.setTelephone(request.getTelephone());
@@ -139,10 +144,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Override
-    public SuperResponse delete(String userId) {
+    public SuperResponse delete(UserRequest request) {
         SuperResponse response = new SuperResponse();
         QueryWrapper<User> wrapper = new QueryWrapper();
-        int  rows = baseMapper.delete(wrapper.eq("user_id",userId));
+        int  rows = baseMapper.delete(wrapper.eq("user_id",request.getUserId()));
         if(rows==0){
             response.setMessage("删除失败");
             response.setCode(-1000);
@@ -150,7 +155,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         //
         //TODO 删除关联的角色
-        roleUserService.deleteRoleUser(userId);
+        roleUserService.deleteRoleUser(request.getUserId());
         return response;
     }
 

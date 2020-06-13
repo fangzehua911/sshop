@@ -28,7 +28,7 @@ public class UserInfoRequest {
     private String remark;
 
     @Min(0)
-    private Integer depId;
+    private Integer deptId;
 
     @Min(0)
     private Integer status;

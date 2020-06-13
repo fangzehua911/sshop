@@ -4,6 +4,7 @@ package com.fzh.sshop.admin.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.req.RoleInfoRequest;
 import com.fzh.sshop.admin.req.RoleListRequest;
+import com.fzh.sshop.admin.req.RoleRequest;
 import com.fzh.sshop.admin.service.impl.RoleServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.ApiOperation;
@@ -30,14 +31,14 @@ public class RoleController {
     @PostMapping("/list")
     @ApiOperation(value = "角色列表" ,notes = "")
     public String userList(@Valid @RequestBody RoleListRequest request ){
-        SuperResponse response = roleService.roleList(request);
+        SuperResponse response = roleService.list(request);
         return JSONObject.toJSONString(response);
     }
 
-    @GetMapping("/find/{roleId}")
+    @PostMapping("/find")
     @ApiOperation(value = "角色详情" ,notes = "")
-    public String find(@Valid @PathVariable("roleId") Integer  roleId ){
-        SuperResponse response = roleService.find(roleId);
+    public String find(@Valid @RequestBody RoleRequest request ){
+        SuperResponse response = roleService.find(request);
         return JSONObject.toJSONString(response);
     }
 
@@ -55,10 +56,10 @@ public class RoleController {
         return JSONObject.toJSONString(response);
     }
 
-    @GetMapping("/delete/{roleId}")
+    @PostMapping("/delete")
     @ApiOperation(value = "角色删除" ,notes = "")
-    public String delete(@Valid @PathVariable("roleId") Integer roleId ){
-        SuperResponse response = roleService.delete(roleId);
+    public String delete(@Valid @RequestBody RoleRequest request ){
+        SuperResponse response = roleService.delete(request);
         return JSONObject.toJSONString(response);
     }
 

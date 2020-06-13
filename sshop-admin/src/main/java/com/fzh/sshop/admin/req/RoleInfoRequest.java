@@ -16,6 +16,10 @@ public class RoleInfoRequest extends SuperRequest {
     @NotBlank
     private String roleName;
 
+    @ApiModelProperty(value = "角色代码")
+    @NotBlank
+    private String roleCode;
+
     @ApiModelProperty(value = "0可用 -1 停用")
     @Min(-1)
     private Integer status;

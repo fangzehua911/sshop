@@ -8,6 +8,7 @@ import com.fzh.sshop.admin.entity.User;
 import com.fzh.sshop.admin.mapper.RoleMapper;
 import com.fzh.sshop.admin.req.RoleInfoRequest;
 import com.fzh.sshop.admin.req.RoleListRequest;
+import com.fzh.sshop.admin.req.RoleRequest;
 import com.fzh.sshop.admin.service.RoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
@@ -28,7 +29,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
 
     @Override
-    public SuperResponse roleList(RoleListRequest request) {
+    public SuperResponse list(RoleListRequest request) {
         SuperResponse response = new SuperResponse();
 
         QueryWrapper<Role> wrapper = new QueryWrapper();
@@ -41,9 +42,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     }
 
     @Override
-    public SuperResponse find(Integer roleId) {
+    public SuperResponse find(RoleRequest request) {
         SuperResponse response = new SuperResponse();
-        Role role  = baseMapper.selectById(roleId);
+        Role role  = baseMapper.selectById(request.getRoleId());
         if(null==role){
             response.setMessage("角色不存在!");
             response.setCode(-1000);
@@ -59,6 +60,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         Role role = new Role();
         role.setRoleName(role.getRoleName());
         role.setStatus(request.getStatus());
+        role.setRoleCode(role.getRoleCode());
         role.setCreateTime(LocalDate.now());
         role.setUpdateTime(LocalDate.now());
         baseMapper.insert(role);
@@ -73,6 +75,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         role.setRoleId(role.getRoleId());
         role.setRoleName(role.getRoleName());
         role.setStatus(request.getStatus());
+        role.setRoleCode(role.getRoleCode());
         role.setUpdateTime(LocalDate.now());
         int rows = baseMapper.updateById(role);
         if(rows==0){
@@ -84,10 +87,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     }
 
     @Override
-    public SuperResponse delete(Integer roleId) {
+    public SuperResponse delete(RoleRequest request) {
 
         SuperResponse response = new SuperResponse();
-        int rows = baseMapper.deleteById(roleId);
+        int rows = baseMapper.deleteById(request.getRoleId());
         if(rows==0){
             response.setMessage("修改失败!");
             response.setCode(-1000);

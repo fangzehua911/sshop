@@ -17,6 +17,11 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+        ##后台管理
+        - id: sshop-admin
+          uri: lb://sshop-admin
+          predicates:
+            - Path= /admin/**
         ##会员
         - id: sshop-member
           uri: lb://sshop-member

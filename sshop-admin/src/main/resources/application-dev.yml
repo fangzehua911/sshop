@@ -10,6 +10,12 @@ spring:
         server-addr: http://127.0.0.1:8848
         file-extension: yaml
         group: SSHOP_GROUP
+  redis:
+    database: 15
+    host: 39.100.230.127
+    port: 6379
+    password: jika_009_x!@
+    timeout: 500
 
   ##数据库配置
   datasource:

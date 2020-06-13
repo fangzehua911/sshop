@@ -9,6 +9,16 @@ public class LoginRequest {
     private String account;
     @NotBlank(message = "请输入密码")
     private String password;
+    @NotBlank
+    private String verifyCode;
+
+    public String getVerifyCode() {
+        return verifyCode;
+    }
+
+    public void setVerifyCode(String verifyCode) {
+        this.verifyCode = verifyCode;
+    }
 
     public String getAccount() {
         return account;

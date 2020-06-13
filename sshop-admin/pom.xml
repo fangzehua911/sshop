@@ -101,6 +101,11 @@
             <version>2.2.2.RELEASE</version>
         </dependency>
 
+        <!-- Redis缓存 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <!-- 工具包引用  -->
 

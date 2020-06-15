@@ -3,6 +3,7 @@ package com.fzh.sshop.admin.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fzh.sshop.admin.entity.Dept;
 import com.fzh.sshop.admin.entity.Role;
 import com.fzh.sshop.admin.entity.User;
 import com.fzh.sshop.admin.mapper.RoleMapper;
@@ -15,6 +16,7 @@ import com.fzh.sshop.request.SuperResponse;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>

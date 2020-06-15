@@ -3,6 +3,7 @@ package com.fzh.sshop.admin.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fzh.sshop.admin.entity.Dept;
 import com.fzh.sshop.admin.entity.Menu;
 import com.fzh.sshop.admin.entity.User;
 import com.fzh.sshop.admin.mapper.MenuMapper;
@@ -33,9 +34,18 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         SuperResponse response = new SuperResponse();
         QueryWrapper<Menu> wrapper = new QueryWrapper();
         Page<Menu> pages = new Page<>(request.getPageNo(),request.getPageSize());
+        wrapper.eq("menu_pid",0);
         IPage<Menu> mapIPage = baseMapper.selectPage(pages, wrapper);
-
-        response.setItems(mapIPage.getRecords());
+        List<Menu> menuList = mapIPage.getRecords();
+        for(Menu menu:menuList){
+            wrapper = new QueryWrapper();
+            menu.setTrees(baseMapper.selectList(wrapper.eq("menu_pid",menu.getMenuId()).orderByAsc("level")));
+            for(Menu menu1:menu.getTrees()){
+                wrapper = new QueryWrapper();
+                menu1.setTrees(baseMapper.selectList(wrapper.eq("menu_pid",menu1.getMenuId()).orderByAsc("level")));
+            }
+        }
+        response.setItems(menuList);
         response.setTotals(mapIPage.getTotal());
         return response;
     }

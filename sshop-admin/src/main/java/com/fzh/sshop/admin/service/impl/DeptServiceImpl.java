@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -37,9 +38,16 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
     public SuperResponse list(DeptListRequest request) {
         SuperResponse response = new SuperResponse();
         QueryWrapper<Dept> wrapper = new QueryWrapper();
+        wrapper.eq("parent_id",0);
         Page<Dept> pages = new Page<>(request.getPageNo(),request.getPageSize());
         IPage<Dept> mapIPage = baseMapper.selectPage(pages, wrapper);
-        response.setItems(mapIPage.getRecords());
+        List<Dept> deptList = mapIPage.getRecords();
+        for(Dept dept:deptList){
+            wrapper = new QueryWrapper();
+            dept.setTrees(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
+        }
+
+        response.setItems(deptList);
         response.setTotals(mapIPage.getTotal());
         return response;
     }

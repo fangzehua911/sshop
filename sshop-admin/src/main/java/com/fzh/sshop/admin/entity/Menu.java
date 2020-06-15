@@ -37,7 +37,7 @@ public class Menu implements Serializable {
     private Integer menuPid;
 
     private String menuName;
-
+    @ApiModelProperty(value = "是否按钮 T,F ")
     private String menuCode;
 
     private Integer level;
@@ -47,6 +47,8 @@ public class Menu implements Serializable {
     private String menuIcon;
 
     private Integer orderno;
+    @ApiModelProperty(value = "是否按钮 T,F ")
+    private String isButton;
 
     @ApiModelProperty(value = "0可用1不可用")
     private Integer status;

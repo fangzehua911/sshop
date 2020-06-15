@@ -44,7 +44,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
         List<Dept> deptList = mapIPage.getRecords();
         for(Dept dept:deptList){
             wrapper = new QueryWrapper();
-            dept.setTrees(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
+            dept.setChildren(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
         }
 
         response.setItems(deptList);

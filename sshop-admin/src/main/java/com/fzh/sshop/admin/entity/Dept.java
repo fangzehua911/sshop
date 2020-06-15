@@ -55,6 +55,6 @@ public class Dept implements Serializable {
     private LocalDateTime updateTime;
 
     @TableField(exist = false)
-    private List<Dept> trees;
+    private List<Dept> children;
 
 }

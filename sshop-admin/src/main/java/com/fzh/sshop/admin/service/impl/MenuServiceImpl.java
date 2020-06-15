@@ -39,10 +39,10 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         List<Menu> menuList = mapIPage.getRecords();
         for(Menu menu:menuList){
             wrapper = new QueryWrapper();
-            menu.setTrees(baseMapper.selectList(wrapper.eq("menu_pid",menu.getMenuId()).orderByAsc("level")));
-            for(Menu menu1:menu.getTrees()){
+            menu.setChildren(baseMapper.selectList(wrapper.eq("menu_pid",menu.getMenuId()).orderByAsc("level")));
+            for(Menu menu1:menu.getChildren()){
                 wrapper = new QueryWrapper();
-                menu1.setTrees(baseMapper.selectList(wrapper.eq("menu_pid",menu1.getMenuId()).orderByAsc("level")));
+                menu1.setChildren(baseMapper.selectList(wrapper.eq("menu_pid",menu1.getMenuId()).orderByAsc("level")));
             }
         }
         response.setItems(menuList);

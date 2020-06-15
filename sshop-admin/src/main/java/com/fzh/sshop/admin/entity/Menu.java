@@ -60,6 +60,6 @@ public class Menu implements Serializable {
     private LocalDateTime updateTime;
 
     @TableField(exist = false)
-    private List<Menu> trees;
+    private List<Menu> children;
 
 }

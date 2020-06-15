@@ -1,6 +1,8 @@
 package com.fzh.sshop.intercept;
 
+import com.fzh.sshop.config.jwt.JWTUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -19,13 +21,15 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
 
         String token = request.getHeader("token");
-        log.info("token : [ {} ]", token);
-        //TODO  token校验  存在就放过
-
+        if(JWTUtil.verify(token)){
+            return true;
+        }
 
         log.info("拦截url:"+request.getRequestURI());
-        response.setContentType("text/html;charset=utf-8");
-        response.getWriter().write("{\n" + "  \"code\": -9999,\n" + "  \"msg\": \"登录超时,请重新登录!\"\n" + "}");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        response.getWriter().println("{\n" + "  \"code\":"+ HttpStatus.UNAUTHORIZED.value()+",\n" + "  \"message\": \""+HttpStatus.UNAUTHORIZED.name()+"\"\n" + "}");
+        response.getWriter().flush();
         return false;
     }
 }

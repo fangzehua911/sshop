@@ -11,7 +11,7 @@ spring:
         file-extension: yaml
         group: SSHOP_GROUP
   redis:
-    database: 15
+    database: 13
     host: 39.100.230.127
     port: 6379
     password: jika_009_x!@

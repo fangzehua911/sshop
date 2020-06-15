@@ -88,8 +88,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setStatus(request.getStatus());
             user.setTelephone(request.getTelephone());
             user.setRemark(request.getRemark());
-            user.setCreateTime(LocalDateTime.now());
-            user.setUpdateTime(LocalDateTime.now());
+            user.setAccount(request.getAccount());
+            user.setHeadImage(request.getHeadImage());
+            user.setSex(request.getSex());
+
             String roles[] = request.getRoles().split(",");
             for(String role_id:roles){
                 //TODO 角色赋权
@@ -115,13 +117,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             User user = new User();
             user.setUserId(request.getUserId());
             user.setUsername(request.getUsername());
-            //user.setPassword(Md5Utils.getMD5(request.getPassword(),"utf-8"));
+            user.setAccount(request.getAccount());
+            user.setHeadImage(request.getHeadImage());
             user.setDeptId(request.getDeptId());
             user.setMail(request.getMail());
             user.setStatus(request.getStatus());
             user.setTelephone(request.getTelephone());
             user.setRemark(request.getRemark());
-            user.setUpdateTime(LocalDateTime.now());
+            user.setSex(request.getSex());
             String roles[] = request.getRoles().split(",");
             RoleUser userRole = null;
             //TODO 删除之前的角色

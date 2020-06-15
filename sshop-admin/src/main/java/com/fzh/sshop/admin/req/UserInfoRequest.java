@@ -11,6 +11,11 @@ public class UserInfoRequest {
 
 
     private String userId;
+    @NotBlank(message = "账户")
+    private String account;
+
+    @NotBlank(message = "头像")
+    private String headImage;
 
     @NotBlank(message = "用户昵称")
     private String username;
@@ -26,6 +31,9 @@ public class UserInfoRequest {
 
     @NotBlank(message = "备注")
     private String remark;
+
+    @Min(0)
+    private Integer sex;
 
     @Min(0)
     private Integer deptId;

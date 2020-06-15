@@ -10,9 +10,9 @@
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>d:/applog/common-service/${ContainerName}/common.log</file>
+        <file>d:/sshop/sshop-admin/${ContainerName}/common.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>d:/applog/common-service/${ContainerName}/common.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <fileNamePattern>d:/sshop/sshop-admin/${ContainerName}/common.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>
         <encoder>

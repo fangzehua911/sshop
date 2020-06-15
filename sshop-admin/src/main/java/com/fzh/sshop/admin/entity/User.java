@@ -34,6 +34,11 @@ public class User implements Serializable {
     @ApiModelProperty(value = "用户ID")
     private String userId;
 
+    @ApiModelProperty(value = "用户账户")
+    private String account;
+    @ApiModelProperty(value = "头像")
+    private String headImage;
+
     @ApiModelProperty(value = "用户昵称")
     private String username;
 
@@ -51,6 +56,8 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "用户部门表")
     private Integer deptId;
+    @ApiModelProperty(value = "性别 0男1女")
+    private Integer sex;
 
     @TableField(exist = false)
     private String deptName;

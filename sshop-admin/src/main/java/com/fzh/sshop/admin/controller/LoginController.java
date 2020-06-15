@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fzh.sshop.admin.service.impl.LoginServiceImpl;
 import com.fzh.sshop.admin.req.LoginRequest;
 import com.fzh.sshop.request.SuperResponse;
+import com.fzh.sshop.utils.RedisUtil;
 import com.fzh.sshop.utils.verify.IVerifyCodeGen;
 import com.fzh.sshop.utils.verify.VerifyCode;
 import com.fzh.sshop.utils.verify.impl.SimpleCharVerifyCodeGenImpl;
@@ -11,6 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,8 @@ public class LoginController {
 
     @Autowired
     private LoginServiceImpl loginService;
+    @Autowired
+    private RedisUtil redisUtil;
 
     @PostMapping("")
     @ApiOperation(value = "用户登录" ,notes = "")
@@ -47,10 +51,10 @@ public class LoginController {
         try {
             //设置长宽
             VerifyCode verifyCode = iVerifyCodeGen.generate(80, 28);
-            String code = verifyCode.getCode();
+            String code = verifyCode.getCode().toUpperCase();
             log.info(code);
             //将VerifyCode绑定session
-            request.getSession().setAttribute("VerifyCode", code);
+            redisUtil.set("VCode:"+code,code,60);
             //设置响应头
             response.setHeader("Pragma", "no-cache");
             //设置响应头

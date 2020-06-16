@@ -17,6 +17,8 @@ public interface DeptService extends IService<Dept> {
 
     SuperResponse list(DeptListRequest request);
 
+    SuperResponse listForSelect(DeptListRequest request);
+
     SuperResponse find(DeptRequest request);
 
     SuperResponse insert(DeptInfoRequest request);

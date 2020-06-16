@@ -18,20 +18,22 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        //TODO 放行指定 url
-        if(UrlFilter.checkUrl(request.getRequestURI())){
-            return true;
-        }
-        //TODO 校验TOKEN
-        String token = request.getHeader("token");
-        if(JWTUtil.verify(token)){
-            return true;
-        }
+        return true;
 
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        response.getWriter().println("{\n" + "  \"code\":"+ HttpStatus.UNAUTHORIZED.value()+",\n" + "  \"message\": \""+HttpStatus.UNAUTHORIZED.name()+"\"\n" + "}");
-        response.getWriter().flush();
-        return false;
+        //TODO 放行指定 url
+//        if(UrlFilter.checkUrl(request.getRequestURI())){
+//            return true;
+//        }
+        //TODO 校验TOKEN
+//        String token = request.getHeader("token");
+//        if(JWTUtil.verify(token)){
+//            return true;
+//        }
+
+//        response.setCharacterEncoding("UTF-8");
+//        response.setContentType("application/json");
+//        response.getWriter().println("{\n" + "  \"code\":"+ HttpStatus.UNAUTHORIZED.value()+",\n" + "  \"message\": \""+HttpStatus.UNAUTHORIZED.name()+"\"\n" + "}");
+//        response.getWriter().flush();
+//        return false;
     }
 }

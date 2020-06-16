@@ -3,6 +3,7 @@ package com.fzh.sshop.admin.service.impl;
 import com.alibaba.nacos.common.utils.Md5Utils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fzh.sshop.admin.entity.RoleUser;
@@ -41,20 +42,38 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private DeptMapper deptMapper;
 
 
+
     @Override
     public SuperResponse list(UserListRequest request) {
         SuperResponse response = new SuperResponse();
         QueryWrapper<User> wrapper = new QueryWrapper();
         Page<User> pages = new Page<>(request.getPageNo(),request.getPageSize());
+
+        if(!StringUtils.isEmpty(request.getUserName())){
+            wrapper.like("user_name",request.getUserName());
+        }
+
+        if(!StringUtils.isEmpty(request.getTelephone())){
+            wrapper.like("telephone",request.getTelephone());
+        }
+        if(null!=request.getDeptId()){
+            wrapper.eq("deptId",request.getDeptId());
+        }
+        if(null!=request.getStatus()){
+            wrapper.eq("status",request.getStatus());
+        }
+
         IPage<User> mapIPage = baseMapper.selectPage(pages, wrapper);
         List<User> list = mapIPage.getRecords();
         for(User user:list){
             user.setDeptName(deptMapper.selectById(user.getDeptId()).getDeptName());
+            user.setRoles(roleUserService.findRolesByUserId(user.getUserId()));
         }
         response.setItems(list);
         response.setTotals(mapIPage.getTotal());
         return response;
     }
+
 
 
     @Override
@@ -81,7 +100,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             String user_id = IdUtils.getUUID();
             User user = new User();
             user.setUserId(user_id);
-            user.setUsername(request.getUsername());
+            user.setUserName(request.getUserName());
             user.setPassword(Md5Utils.getMD5(request.getPassword(),"utf-8"));
             user.setDeptId(request.getDeptId());
             user.setMail(request.getMail());
@@ -116,7 +135,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         try {
             User user = new User();
             user.setUserId(request.getUserId());
-            user.setUsername(request.getUsername());
+            user.setUserName(request.getUserName());
             user.setAccount(request.getAccount());
             user.setHeadImage(request.getHeadImage());
             user.setDeptId(request.getDeptId());

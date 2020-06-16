@@ -9,13 +9,13 @@
         <module name="sshop-shop" />
         <module name="sshop-tools" />
         <module name="sshop-order" />
+        <module name="sshop-admin" />
         <module name="sshop-utils" />
         <module name="sshop-promotion" />
         <module name="sshop-payment" />
         <module name="sshop-stock" />
         <module name="sshop-member" />
         <module name="sshop-gateway" />
-        <module name="sshop-admin" />
       </profile>
     </annotationProcessing>
   </component>

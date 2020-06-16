@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fzh.sshop.admin.entity.Dept;
+import com.fzh.sshop.admin.entity.DeptForSelect;
 import com.fzh.sshop.admin.entity.Role;
 import com.fzh.sshop.admin.entity.User;
 import com.fzh.sshop.admin.mapper.DeptMapper;
@@ -18,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,6 +36,28 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
 
     @Autowired
     private UserMapper userMapper;
+
+
+    //TODO 垃圾代码！
+    @Override
+    public SuperResponse listForSelect(DeptListRequest request) {
+        SuperResponse response = new SuperResponse();
+        QueryWrapper<Dept> wrapper = new QueryWrapper();
+        wrapper.eq("parent_id",0);
+        List<Dept> deptList = baseMapper.selectList(wrapper);
+
+        Iterator<Dept> iterator = deptList.iterator();
+        while(iterator.hasNext()){
+            Dept dept = iterator.next();
+            wrapper = new QueryWrapper();
+            deptList.addAll(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
+        }
+
+        response.setItems(deptList);
+        return response;
+    }
+
+
 
     @Override
     public SuperResponse list(DeptListRequest request) {

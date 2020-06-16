@@ -36,6 +36,13 @@ public class DeptController {
         return deptService.list(request);
     }
 
+    @PostMapping("/listForSelect")
+    @ApiOperation(value = "部门列表（筛选用）" ,notes = "")
+    public SuperResponse listForSelect(@Valid @RequestBody DeptListRequest request ){
+        return deptService.listForSelect(request);
+    }
+
+
     @PostMapping ("/find")
     @ApiOperation(value = "部门详情" ,notes = "")
     public SuperResponse find(@Valid @RequestBody DeptRequest request ){

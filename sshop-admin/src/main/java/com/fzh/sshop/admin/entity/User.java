@@ -40,7 +40,7 @@ public class User implements Serializable {
     private String headImage;
 
     @ApiModelProperty(value = "用户昵称")
-    private String username;
+    private String userName;
 
     @ApiModelProperty(value = "用户手机号")
     private String telephone;
@@ -61,6 +61,8 @@ public class User implements Serializable {
 
     @TableField(exist = false)
     private String deptName;
+    @TableField(exist = false)
+    private String roles;
 
     @ApiModelProperty(value = "用户的状态 1 ：正常  0：冻结 2：删除")
     private Integer status;

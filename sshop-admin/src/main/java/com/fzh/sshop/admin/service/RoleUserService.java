@@ -13,8 +13,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RoleUserService extends IService<RoleUser> {
 
-    boolean deleteRoleUser(String user_id);
+    boolean deleteRoleUser(String userId);
 
     boolean insertRoleUser(RoleUser roleUser);
+
+    String findRolesByUserId(String userId);
 
 }

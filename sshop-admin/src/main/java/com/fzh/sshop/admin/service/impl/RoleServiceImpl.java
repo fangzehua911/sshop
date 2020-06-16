@@ -60,9 +60,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     public SuperResponse insert(RoleInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Role role = new Role();
-        role.setRoleName(role.getRoleName());
+        role.setRoleName(request.getRoleName());
         role.setStatus(request.getStatus());
-        role.setRoleCode(role.getRoleCode());
+        role.setRoleCode(request.getRoleCode());
         baseMapper.insert(role);
         return response;
     }
@@ -72,10 +72,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     public SuperResponse update(RoleInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Role role = new Role();
-        role.setRoleId(role.getRoleId());
-        role.setRoleName(role.getRoleName());
+        role.setRoleId(request.getRoleId());
+        role.setRoleName(request.getRoleName());
         role.setStatus(request.getStatus());
-        role.setRoleCode(role.getRoleCode());
+        role.setRoleCode(request.getRoleCode());
         int rows = baseMapper.updateById(role);
         if(rows==0){
             response.setMessage("修改失败!");

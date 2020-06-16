@@ -18,7 +18,7 @@ public class UserInfoRequest {
     private String headImage;
 
     @NotBlank(message = "用户昵称")
-    private String username;
+    private String userName;
 
     @NotBlank(message = "用户手机号")
     private String telephone;

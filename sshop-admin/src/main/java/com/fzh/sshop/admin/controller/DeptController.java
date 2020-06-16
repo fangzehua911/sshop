@@ -32,37 +32,32 @@ public class DeptController {
 
     @PostMapping("/list")
     @ApiOperation(value = "部门列表" ,notes = "")
-    public String userList(@Valid @RequestBody DeptListRequest request ){
-        SuperResponse response = deptService.list(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse userList(@Valid @RequestBody DeptListRequest request ){
+        return deptService.list(request);
     }
 
     @PostMapping ("/find")
     @ApiOperation(value = "部门详情" ,notes = "")
-    public String find(@Valid @RequestBody DeptRequest request ){
-        SuperResponse response = deptService.find(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse find(@Valid @RequestBody DeptRequest request ){
+        return deptService.find(request);
     }
 
     @PostMapping("/insert")
     @ApiOperation(value = "部门添加" ,notes = "")
-    public String delete(@Valid @RequestBody DeptInfoRequest request){
-        SuperResponse response = deptService.insert(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody DeptInfoRequest request){
+        return deptService.insert(request);
     }
 
     @PostMapping("/update")
     @ApiOperation(value = "部门修改" ,notes = "")
-    public String update(@Valid @RequestBody DeptInfoRequest request){
-        SuperResponse response = deptService.update(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse update(@Valid @RequestBody DeptInfoRequest request){
+        return deptService.update(request);
     }
 
     @PostMapping("/delete")
     @ApiOperation(value = "部门删除" ,notes = "")
-    public String delete(@Valid @RequestBody  DeptRequest request ){
-        SuperResponse response = deptService.delete(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody  DeptRequest request ){
+        return deptService.delete(request);
     }
 
 }

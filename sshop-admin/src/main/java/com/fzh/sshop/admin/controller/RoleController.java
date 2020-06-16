@@ -32,37 +32,32 @@ public class RoleController {
 
     @PostMapping("/list")
     @ApiOperation(value = "角色列表" ,notes = "")
-    public String userList(@Valid @RequestBody RoleListRequest request ){
-        SuperResponse response = roleService.list(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse userList(@Valid @RequestBody RoleListRequest request ){
+        return roleService.list(request);
     }
 
     @PostMapping("/find")
     @ApiOperation(value = "角色详情" ,notes = "")
-    public String find(@Valid @RequestBody RoleRequest request ){
-        SuperResponse response = roleService.find(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse find(@Valid @RequestBody RoleRequest request ){
+        return roleService.find(request);
     }
 
     @PostMapping("/insert")
     @ApiOperation(value = "角色添加" ,notes = "")
-    public String delete(@Valid @RequestBody RoleInfoRequest request){
-        SuperResponse response = roleService.insert(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody RoleInfoRequest request){
+        return roleService.insert(request);
     }
 
     @PostMapping("/update")
     @ApiOperation(value = "角色修改" ,notes = "")
-    public String update(@Valid @RequestBody RoleInfoRequest request){
-        SuperResponse response = roleService.update(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse update(@Valid @RequestBody RoleInfoRequest request){
+        return roleService.update(request);
     }
 
     @PostMapping("/delete")
     @ApiOperation(value = "角色删除" ,notes = "")
-    public String delete(@Valid @RequestBody RoleRequest request ){
-        SuperResponse response = roleService.delete(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody RoleRequest request ){
+        return roleService.delete(request);
     }
 
 

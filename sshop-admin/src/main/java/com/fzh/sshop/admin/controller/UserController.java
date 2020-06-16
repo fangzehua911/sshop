@@ -9,11 +9,11 @@ import com.fzh.sshop.admin.service.impl.UserServiceImpl;
 import com.fzh.sshop.request.SuperResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * <p>
@@ -34,37 +34,32 @@ public class UserController {
 
     @PostMapping("/list")
     @ApiOperation(value = "用户列表" ,notes = "")
-    public String userList(@Valid @RequestBody UserListRequest request ){
-        SuperResponse response = userService.list(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse userList(@Valid @RequestBody UserListRequest request ){
+        return userService.list(request);
     }
 
     @PostMapping("/find")
     @ApiOperation(value = "用户详情" ,notes = "")
-    public String find(@Valid @RequestBody UserRequest request ){
-        SuperResponse response = userService.find(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse find(@Valid @RequestBody UserRequest request ){
+        return userService.find(request);
     }
 
     @PostMapping("/insert")
     @ApiOperation(value = "用户添加" ,notes = "")
-    public String delete(@Valid @RequestBody UserInfoRequest request){
-        SuperResponse response = userService.insert(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody UserInfoRequest request){
+        return userService.insert(request);
     }
 
     @PostMapping("/update")
     @ApiOperation(value = "用户修改" ,notes = "")
-    public String update(@Valid @RequestBody UserInfoRequest request){
-        SuperResponse response = userService.update(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse update(@Valid @RequestBody UserInfoRequest request){
+        return userService.update(request);
     }
 
     @PostMapping("/delete")
     @ApiOperation(value = "用户删除" ,notes = "")
-    public String delete(@Valid @RequestBody UserRequest request ){
-        SuperResponse response = userService.delete(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody UserRequest request ){
+        return userService.delete(request);
     }
 
 }

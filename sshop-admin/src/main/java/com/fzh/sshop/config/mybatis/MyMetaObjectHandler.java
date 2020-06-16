@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+/**
+ * 自动填充 时间
+ * @author fang
+ */
 @Component
 @Slf4j
 public class MyMetaObjectHandler implements MetaObjectHandler {
@@ -22,4 +26,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         this.setFieldValByName("updateTime", LocalDateTime.now(),metaObject);
     }
+
+
 }

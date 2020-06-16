@@ -89,13 +89,5 @@ public class JWTUtil {
         }
     }
 
-//    public static void main(String[] args) {
-//    String token =  JWTUtil.createJWT(1*60*1000,"fzh");
-//   // String token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMiLCJ1c2VyTmFtZSI6IjEyMyIsImV4cCI6MTU5MjIyMzYxMSwiaWF0IjoxNTkyMjIwMDExLCJqdGkiOiJhZGRlYzE3Yi01ZDU0LTRkMzctYjY4ZC1hY2U2NGNhNWQyNTYifQ.FGqMJ6893ekmq07D3MWoAZC2rEROmHF1M8-YdCovgjc";
-//    System.out.println(token);
-//     String str = JWTUtil.parseJWT(token);
-//     System.out.println(JWTUtil.verify(token));
-//     System.out.println(str);
-//    }
 
 }

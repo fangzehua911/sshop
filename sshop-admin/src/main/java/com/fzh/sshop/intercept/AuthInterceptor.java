@@ -9,6 +9,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 拦截请求校验 token
+ */
 @Component
 @Slf4j
 public class AuthInterceptor implements HandlerInterceptor {
@@ -19,13 +22,12 @@ public class AuthInterceptor implements HandlerInterceptor {
         if(UrlFilter.checkUrl(request.getRequestURI())){
             return true;
         }
-
+        //TODO 校验TOKEN
         String token = request.getHeader("token");
         if(JWTUtil.verify(token)){
             return true;
         }
 
-        log.info("拦截url:"+request.getRequestURI());
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         response.getWriter().println("{\n" + "  \"code\":"+ HttpStatus.UNAUTHORIZED.value()+",\n" + "  \"message\": \""+HttpStatus.UNAUTHORIZED.name()+"\"\n" + "}");

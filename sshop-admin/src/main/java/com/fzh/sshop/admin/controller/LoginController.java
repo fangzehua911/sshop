@@ -37,9 +37,8 @@ public class LoginController {
 
     @PostMapping("")
     @ApiOperation(value = "用户登录" ,notes = "")
-    public String userLogin(@Valid @RequestBody LoginRequest request){
-        SuperResponse response = loginService.userLogin(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse userLogin(@Valid @RequestBody LoginRequest request){
+        return loginService.userLogin(request);
     }
 
 

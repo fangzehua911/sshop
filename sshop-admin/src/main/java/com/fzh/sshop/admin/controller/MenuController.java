@@ -35,37 +35,32 @@ public class MenuController {
 
     @PostMapping("/list")
     @ApiOperation(value = "菜单列表" ,notes = "")
-    public String userList(@Valid @RequestBody MenuListRequest request ){
-        SuperResponse response = menuService.list(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse userList(@Valid @RequestBody MenuListRequest request ){
+        return  menuService.list(request);
     }
 
     @PostMapping("/find")
     @ApiOperation(value = "菜单详情" ,notes = "")
-    public String find(@Valid @RequestBody MenuRequest request ){
-        SuperResponse response = menuService.find(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse find(@Valid @RequestBody MenuRequest request ){
+        return menuService.find(request);
     }
 
     @PostMapping("/insert")
     @ApiOperation(value = "菜单添加" ,notes = "")
-    public String delete(@Valid @RequestBody MenuInfoRequest request){
-        SuperResponse response = menuService.insert(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody MenuInfoRequest request){
+        return menuService.insert(request);
     }
 
     @PostMapping("/update")
     @ApiOperation(value = "菜单修改" ,notes = "")
-    public String update(@Valid @RequestBody MenuInfoRequest request){
-        SuperResponse response = menuService.update(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse update(@Valid @RequestBody MenuInfoRequest request){
+        return menuService.update(request);
     }
 
     @PostMapping("/delete")
     @ApiOperation(value = "菜单删除" ,notes = "")
-    public String delete(@Valid @RequestBody MenuRequest request ){
-        SuperResponse response = menuService.delete(request);
-        return JSONObject.toJSONString(response);
+    public SuperResponse delete(@Valid @RequestBody MenuRequest request ){
+        return menuService.delete(request);
     }
 
 }

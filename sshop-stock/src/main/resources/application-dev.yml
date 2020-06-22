@@ -5,18 +5,18 @@ spring:
     nacos:
       discovery:
         server-addr: http://127.0.0.1:8848
-        group: STOCK_GROUP
+        group: SSHOP_GROUP
       config:
         server-addr: http://127.0.0.1:8848
         file-extension: yaml
-        group: STOCK_GROUP
+        group: SSHOP_GROUP
 
   ##数据库配置
   datasource:
-    username: root
-    password: root
+    username: fangzehua
+    password: fangzehua
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/sshop?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://rm-8vbn7y8nezwvp5bw3xo.mysql.zhangbei.rds.aliyuncs.com:3306/sshop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
 
 
 mybatis-plus:
@@ -28,7 +28,7 @@ mybatis-plus:
 
 
 server:
-  port: 8611
+  port: 8622
 
 logging:
   config: classpath:logback.xml

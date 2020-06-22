@@ -34,16 +34,16 @@ public class MyBatisPulsCode {
         mpg.setGlobalConfig(gc);
 //2、设置数据源
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/sshop?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
-                dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setUrl("jdbc:mysql://rm-8vbn7y8nezwvp5bw3xo.mysql.zhangbei.rds.aliyuncs.com:3306/sshop?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setDriverName("com.mysql.jdbc.Driver");
+        dsc.setUsername("fangzehua");
+        dsc.setPassword("fangzehua");
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 //3、包的配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName("stock");
-        pc.setParent("com.fzh.sshop.app");
+        pc.setParent("com.fzh.sshop");
         pc.setEntity("entity");
         pc.setMapper("mapper");
         pc.setService("service");

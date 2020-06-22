@@ -1,4 +1,4 @@
-package com.fzh.sshop.web.stock.entity.net;
+package com.fzh.sshop.request;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class SuperResponse<T>{
     private List<T> items;
     private Long totals;
     private Long time = System.currentTimeMillis();
-
+    private String token;
     public Long getTime() {
         return time;
     }

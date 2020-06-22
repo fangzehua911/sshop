@@ -1,7 +1,8 @@
-package com.fzh.sshop.web.stock.mapper;
+package com.fzh.sshop.stock.mapper;
 
-import com.fzh.sshop.web.stock.entity.TBizCategory;
+import com.fzh.sshop.stock.entity.TBizCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -9,8 +10,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author fang
- * @since 2020-06-10
+ * @since 2020-06-22
  */
+@Mapper
 public interface TBizCategoryMapper extends BaseMapper<TBizCategory> {
 
 }

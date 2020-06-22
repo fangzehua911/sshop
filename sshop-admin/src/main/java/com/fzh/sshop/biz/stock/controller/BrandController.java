@@ -16,42 +16,40 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/admin/stock/category")
-@Api(value = "商品管理",tags = {"admin-商品分类"})
-public class CategoryController {
-
+@RequestMapping("/admin/stock/brand")
+@Api(value = "商品管理",tags = {"admin-商品品牌"})
+public class BrandController {
 
     @Autowired
     private CategoryServiceImpl service;
 
     @PostMapping("/list")
-    @ApiOperation(value = "分类列表" ,notes = "")
+    @ApiOperation(value = "品牌列表" ,notes = "")
     public SuperResponse categoryList(@Valid @RequestBody CategoryListRequest request ){
         return service.list(request);
     }
-
     @PostMapping("/find")
-    @ApiOperation(value = "分类详情" ,notes = "")
+    @ApiOperation(value = "品牌详情" ,notes = "")
     public SuperResponse find(@Valid @RequestBody CategoryRequest request ){
         return service.find(request);
     }
 
     @PostMapping("/insert")
-    @ApiOperation(value = "分类添加" ,notes = "")
+    @ApiOperation(value = "品牌添加" ,notes = "")
     public SuperResponse delete(@Valid @RequestBody CategoryInfoRequest request){
         return service.insert(request);
     }
 
     @PostMapping("/update")
-    @ApiOperation(value = "分类修改" ,notes = "")
+    @ApiOperation(value = "品牌修改" ,notes = "")
     public SuperResponse update(@Valid @RequestBody CategoryInfoRequest request){
         return service.update(request);
     }
 
     @PostMapping("/delete")
-    @ApiOperation(value = "分类删除" ,notes = "")
+    @ApiOperation(value = "品牌删除" ,notes = "")
     public SuperResponse delete(@Valid @RequestBody CategoryRequest request ){
         return service.delete(request);
     }
-}
 
+}

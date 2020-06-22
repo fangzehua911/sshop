@@ -3,7 +3,7 @@ package com.fzh.sshop.biz.stock.service;
 import com.fzh.sshop.biz.stock.req.CategoryInfoRequest;
 import com.fzh.sshop.biz.stock.req.CategoryListRequest;
 import com.fzh.sshop.biz.stock.req.CategoryRequest;
-import com.fzh.sshop.bizfc.FCCategoryService;
+import com.fzh.sshop.bizfc.FCStockService;
 import com.fzh.sshop.request.SuperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class CategoryServiceImpl {
 
     @Autowired
-    private FCCategoryService fcCategoryService;
+    private FCStockService fcCategoryService;
 
     public SuperResponse list(CategoryListRequest request){
        return fcCategoryService.category_list(request);

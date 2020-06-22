@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 库存服务接口
  */
 @FeignClient(value = "sshop-stock")
-public interface FCCategoryService {
+public interface FCStockService {
 
     //TODO 如果 开发直接协调与约束能统一，严格指定规范 服务直接可以无转换调用, 如果无法做到规范 建议使用String接收
 

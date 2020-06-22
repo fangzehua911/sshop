@@ -3,6 +3,7 @@ package com.fzh.sshop.admin.req;
 import com.fzh.sshop.request.SuperRequest;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.Value;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -24,7 +25,7 @@ public class MenuInfoRequest extends SuperRequest {
     private Integer level;
     @NotBlank
     private String menuUrl;
-    @NotBlank
+
     private String menuIcon;
     @Min(0)
     private Integer orderno;

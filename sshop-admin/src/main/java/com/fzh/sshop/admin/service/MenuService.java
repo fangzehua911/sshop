@@ -17,6 +17,8 @@ public interface MenuService extends IService<Menu> {
 
     SuperResponse list(MenuListRequest request);
 
+    SuperResponse listForSelect(MenuListRequest request);
+
     SuperResponse find(MenuRequest request);
 
     SuperResponse insert(MenuInfoRequest request);

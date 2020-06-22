@@ -51,7 +51,7 @@ public class DeptController {
 
     @PostMapping("/insert")
     @ApiOperation(value = "部门添加" ,notes = "")
-    public SuperResponse delete(@Valid @RequestBody DeptInfoRequest request){
+    public SuperResponse insert(@Valid @RequestBody DeptInfoRequest request){
         return deptService.insert(request);
     }
 

@@ -20,16 +20,16 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         return true;
 
-        //TODO 放行指定 url
+//        //TODO 放行指定 url
 //        if(UrlFilter.checkUrl(request.getRequestURI())){
 //            return true;
 //        }
-        //TODO 校验TOKEN
+//       // TODO 校验TOKEN
 //        String token = request.getHeader("token");
 //        if(JWTUtil.verify(token)){
 //            return true;
 //        }
-
+//
 //        response.setCharacterEncoding("UTF-8");
 //        response.setContentType("application/json");
 //        response.getWriter().println("{\n" + "  \"code\":"+ HttpStatus.UNAUTHORIZED.value()+",\n" + "  \"message\": \""+HttpStatus.UNAUTHORIZED.name()+"\"\n" + "}");

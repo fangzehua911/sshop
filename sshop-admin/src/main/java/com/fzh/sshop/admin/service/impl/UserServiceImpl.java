@@ -57,7 +57,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             wrapper.like("telephone",request.getTelephone());
         }
         if(null!=request.getDeptId()){
-            wrapper.eq("deptId",request.getDeptId());
+            wrapper.eq("dept_id",request.getDeptId());
         }
         if(null!=request.getStatus()){
             wrapper.eq("status",request.getStatus());

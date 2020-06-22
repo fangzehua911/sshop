@@ -46,12 +46,12 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
         wrapper.eq("parent_id",0);
         List<Dept> deptList = baseMapper.selectList(wrapper);
 
-        Iterator<Dept> iterator = deptList.iterator();
-        while(iterator.hasNext()){
-            Dept dept = iterator.next();
-            wrapper = new QueryWrapper();
-            deptList.addAll(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
-        }
+//        Iterator<Dept> iterator = deptList.iterator();
+//        while(iterator.hasNext()){
+//            Dept dept = iterator.next();
+//            wrapper = new QueryWrapper();
+//            deptList.addAll(baseMapper.selectList(wrapper.eq("parent_id",dept.getDeptId()).orderByAsc("level")));
+//        }
 
         response.setItems(deptList);
         return response;
@@ -94,7 +94,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
     public SuperResponse insert(DeptInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Dept dept = new Dept();
-        dept.setDeptName(request.getName());
+        dept.setDeptName(request.getDeptName());
         dept.setParentId(request.getParentId());
         dept.setLevel(request.getLevel());
         dept.setRemark(request.getRemark());
@@ -112,8 +112,8 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
     public SuperResponse update(DeptInfoRequest request) {
         SuperResponse response = new SuperResponse();
         Dept dept = new Dept();
-        dept.setDeptId(request.getId());
-        dept.setDeptName(request.getName());
+        dept.setDeptId(request.getDeptId());
+        dept.setDeptName(request.getDeptName());
         dept.setParentId(request.getParentId());
         dept.setLevel(request.getLevel());
         dept.setRemark(request.getRemark());
@@ -131,7 +131,7 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements De
     public SuperResponse delete(DeptRequest request) {
         SuperResponse response = new SuperResponse();
         QueryWrapper<User> wrapper = new QueryWrapper();
-        wrapper.eq("dep_id",request.getDeptId());
+        wrapper.eq("dept_id",request.getDeptId());
         Integer users =  userMapper.selectCount(wrapper);
         if(users>0){
             response.setMessage("使用的部门不允许删除!");

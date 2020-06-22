@@ -50,6 +50,24 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         return response;
     }
 
+
+    @Override
+    public SuperResponse listForSelect(MenuListRequest request) {
+        SuperResponse response = new SuperResponse();
+        QueryWrapper<Menu> wrapper = new QueryWrapper();
+        Page<Menu> pages = new Page<>(request.getPageNo(),request.getPageSize());
+        wrapper.eq("menu_pid",0);
+        IPage<Menu> mapIPage = baseMapper.selectPage(pages, wrapper);
+        List<Menu> menuList = mapIPage.getRecords();
+        for(Menu menu:menuList){
+            wrapper = new QueryWrapper();
+            menu.setChildren(baseMapper.selectList(wrapper.eq("menu_pid",menu.getMenuId()).orderByAsc("level")));
+        }
+        response.setItems(menuList);
+        response.setTotals(mapIPage.getTotal());
+        return response;
+    }
+
     @Override
     public SuperResponse find(MenuRequest request) {
         SuperResponse response = new SuperResponse();

@@ -35,9 +35,16 @@ public class MenuController {
 
     @PostMapping("/list")
     @ApiOperation(value = "菜单列表" ,notes = "")
-    public SuperResponse userList(@Valid @RequestBody MenuListRequest request ){
+    public SuperResponse list(@Valid @RequestBody MenuListRequest request ){
         return  menuService.list(request);
     }
+
+    @PostMapping("/listForSelect")
+    @ApiOperation(value = "菜单列表（筛选用）" ,notes = "")
+    public SuperResponse listForSelect(@Valid @RequestBody MenuListRequest request ){
+        return menuService.listForSelect(request);
+    }
+
 
     @PostMapping("/find")
     @ApiOperation(value = "菜单详情" ,notes = "")

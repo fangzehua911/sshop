@@ -14,11 +14,11 @@ public class DeptInfoRequest extends SuperRequest {
 
 
     @ApiModelProperty(value = "部门ID")
-    private Integer id;
+    private Integer deptId;
 
     @ApiModelProperty(value = "部门名称")
     @NotBlank
-    private String name;
+    private String deptName;
 
     @ApiModelProperty(value = "上级ID")
     @Min(0)

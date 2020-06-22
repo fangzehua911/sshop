@@ -29,8 +29,8 @@ public class MenuInfoRequest extends SuperRequest {
     private String menuIcon;
     @Min(0)
     private Integer orderno;
-    @Min(0)
+    @NotBlank
     @ApiModelProperty(value = "0可用1不可用")
-    private Integer status;
+    private String status;
 
 }

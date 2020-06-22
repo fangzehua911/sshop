@@ -42,7 +42,6 @@ public class DeptController {
         return deptService.listForSelect(request);
     }
 
-
     @PostMapping ("/find")
     @ApiOperation(value = "部门详情" ,notes = "")
     public SuperResponse find(@Valid @RequestBody DeptRequest request ){

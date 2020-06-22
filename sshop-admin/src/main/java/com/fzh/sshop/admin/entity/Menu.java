@@ -51,7 +51,7 @@ public class Menu implements Serializable {
     private String isButton;
 
     @ApiModelProperty(value = "0可用1不可用")
-    private Integer status;
+    private String status;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

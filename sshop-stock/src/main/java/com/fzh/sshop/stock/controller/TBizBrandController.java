@@ -2,9 +2,8 @@ package com.fzh.sshop.stock.controller;
 
 
 import com.fzh.sshop.request.SuperResponse;
-import com.fzh.sshop.stock.req.CategoryInfoRequest;
-import com.fzh.sshop.stock.req.CategoryListRequest;
-import com.fzh.sshop.stock.req.CategoryRequest;
+import com.fzh.sshop.stock.req.*;
+import com.fzh.sshop.stock.service.impl.TBizBrandServiceImpl;
 import com.fzh.sshop.stock.service.impl.TBizCategoryServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,48 +18,50 @@ import javax.validation.Valid;
 
 /**
  * <p>
- * 分类表 前端控制器
+ * 品牌表 前端控制器
  * </p>
  *
  * @author fang
  * @since 2020-06-22
  */
 @RestController
-@RequestMapping("/stock/category")
-@Api(value = "后台管理",tags = {"admin-商品分类"})
-public class TBizCategoryController {
+@RequestMapping("/stock/brand")
+@Api(value = "后台管理",tags = {"admin-品牌管理"})
+public class TBizBrandController {
 
     @Autowired
-    private TBizCategoryServiceImpl service;
+    private TBizBrandServiceImpl service;
 
     @PostMapping("/list")
-    @ApiOperation(value = "分类列表" ,notes = "")
-    public SuperResponse list(@Valid @RequestBody CategoryListRequest request ){
+    @ApiOperation(value = "品牌列表" ,notes = "")
+    public SuperResponse list(@Valid @RequestBody BrandListRequest request ){
         return  service.list(request);
     }
 
     @PostMapping("/find")
-    @ApiOperation(value = "分类详情" ,notes = "")
-    public SuperResponse find(@Valid @RequestBody CategoryRequest request ){
+    @ApiOperation(value = "品牌详情" ,notes = "")
+    public SuperResponse find(@Valid @RequestBody BrandRequest request ){
         return service.find(request);
     }
 
     @PostMapping("/insert")
-    @ApiOperation(value = "分类添加" ,notes = "")
-    public SuperResponse delete(@Valid @RequestBody CategoryInfoRequest request){
+    @ApiOperation(value = "品牌添加" ,notes = "")
+    public SuperResponse delete(@Valid @RequestBody BrandInfoRequest request){
         return service.insert(request);
     }
 
     @PostMapping("/update")
-    @ApiOperation(value = "分类修改" ,notes = "")
-    public SuperResponse update(@Valid @RequestBody CategoryInfoRequest request){
+    @ApiOperation(value = "品牌修改" ,notes = "")
+    public SuperResponse update(@Valid @RequestBody BrandInfoRequest request){
         return service.update(request);
     }
 
     @PostMapping("/delete")
-    @ApiOperation(value = "分类删除" ,notes = "")
-    public SuperResponse delete(@Valid @RequestBody CategoryRequest request ){
+    @ApiOperation(value = "品牌删除" ,notes = "")
+    public SuperResponse delete(@Valid @RequestBody BrandRequest request ){
         return service.delete(request);
     }
+
+
 }
 

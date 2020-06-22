@@ -93,6 +93,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         menu.setMenuIcon(request.getMenuIcon());
         menu.setMenuUrl(request.getMenuUrl());
         menu.setIsButton(request.getIsButton());
+        menu.setStatus(request.getStatus());
         int rows =  baseMapper.insert(menu);
         if(rows!=1){
            response.setMessage("添加失败!");
@@ -114,7 +115,8 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         menu.setMenuIcon(request.getMenuIcon());
         menu.setMenuUrl(request.getMenuUrl());
         menu.setIsButton(request.getIsButton());
-        int rows =  baseMapper.insert(menu);
+        menu.setStatus(request.getStatus());
+        int rows =  baseMapper.updateById(menu);
         if(rows!=1){
             response.setMessage("修改失败!");
             response.setCode(-1000);

@@ -20,23 +20,23 @@ public class CategoryServiceImpl {
     private FCCategoryService fcCategoryService;
 
     public SuperResponse list(CategoryListRequest request){
-       return fcCategoryService.list(request);
+       return fcCategoryService.category_list(request);
     }
 
     public SuperResponse find(CategoryRequest request) {
-        return fcCategoryService.find(request);
+        return fcCategoryService.category_find(request);
     }
 
     public SuperResponse insert(CategoryInfoRequest request) {
-        return fcCategoryService.insert(request);
+        return fcCategoryService.category_insert(request);
     }
 
     public SuperResponse update(CategoryInfoRequest request) {
-        return fcCategoryService.update(request);
+        return fcCategoryService.category_update(request);
     }
 
     public SuperResponse delete(CategoryRequest request) {
-        return fcCategoryService.delete(request);
+        return fcCategoryService.category_delete(request);
     }
 
 

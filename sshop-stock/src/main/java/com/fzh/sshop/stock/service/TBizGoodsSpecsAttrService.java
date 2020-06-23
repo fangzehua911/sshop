@@ -7,7 +7,7 @@ import com.fzh.sshop.stock.req.GoodsSpecsAttrInfoRequest;
 import com.fzh.sshop.stock.req.GoodsSpecsAttrListRequest;
 import com.fzh.sshop.stock.req.GoodsSpecsAttrRequest;
 
-import java.util.List;
+
 
 /**
  * <p>

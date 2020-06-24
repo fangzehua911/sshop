@@ -15,6 +15,11 @@ public interface FCStockService {
 
     //TODO 如果 开发直接协调与约束能统一，严格指定规范 服务直接可以无转换调用, 如果无法做到规范 建议使用String接收
 
+    /**
+     * 分类关接口
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/stock/category/list",method = RequestMethod.POST)
     SuperResponse category_list(CategoryListRequest request);
 
@@ -31,6 +36,11 @@ public interface FCStockService {
     SuperResponse category_delete(CategoryRequest request);
 
 
+    /**
+     * 品牌相关接口
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/stock/brand/list",method = RequestMethod.POST)
     SuperResponse brand_list(BrandListRequest request);
 
@@ -45,5 +55,27 @@ public interface FCStockService {
 
     @RequestMapping(value = "/stock/brand/delete",method = RequestMethod.POST)
     SuperResponse brand_delete(BrandRequest request);
+
+
+    /**
+     * 商品属性相关
+     * @param request
+     * @return
+     */
+
+    @RequestMapping(value = "/stock/goods/list",method = RequestMethod.POST)
+    SuperResponse goods_list(GoodsListRequest request);
+
+    @RequestMapping(value = "/stock/goods/find",method = RequestMethod.POST)
+    SuperResponse goods_find(GoodsRequest request);
+
+    @RequestMapping(value = "/stock/goods/insert",method = RequestMethod.POST)
+    SuperResponse goods_insert(GoodsInfoRequest request);
+
+    @RequestMapping(value = "/stock/goods/update",method = RequestMethod.POST)
+    SuperResponse goods_update(GoodsInfoRequest request);
+
+    @RequestMapping(value = "/stock/goods/delete",method = RequestMethod.POST)
+    SuperResponse goods_delete(GoodsRequest request);
 
 }

@@ -1,7 +1,9 @@
 package com.fzh.sshop.stock.service;
 
+import com.fzh.sshop.request.SuperResponse;
 import com.fzh.sshop.stock.entity.TBizGoodsSpecsAttrValue;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.fzh.sshop.stock.req.*;
 
 /**
  * <p>
@@ -13,4 +15,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TBizGoodsSpecsAttrValueService extends IService<TBizGoodsSpecsAttrValue> {
 
+    SuperResponse list(GoodsSpecsAttrValueListRequest request);
+
+    SuperResponse find(GoodsSpecsAttrValueRequest request);
+
+    SuperResponse insert(GoodsSpecsAttrValueInfoRequest request);
+
+    SuperResponse update(GoodsSpecsAttrValueInfoRequest request);
+
+    SuperResponse delete(GoodsSpecsAttrValueRequest request);
 }

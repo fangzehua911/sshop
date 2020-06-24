@@ -32,7 +32,6 @@ public class TBizGoodsSpecsAttrValueController {
     private TBizGoodsSpecsAttrValueServiceImpl service;
 
 
-
     @PostMapping("/list")
     @ApiOperation(value = "属性值列表" ,notes = "")
     public SuperResponse list(@Valid @RequestBody GoodsSpecsAttrValueListRequest request ){

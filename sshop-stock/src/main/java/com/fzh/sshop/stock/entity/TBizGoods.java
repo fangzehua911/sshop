@@ -61,6 +61,13 @@ public class TBizGoods implements Serializable {
     @ApiModelProperty(value = "库存数量")
     private Integer stockVol;
 
+    @ApiModelProperty(value = "库存数量")
+    @TableLogic
+    private Integer deleted;
+
+    @ApiModelProperty(value = "T,F 上架 下架")
+    private String status;
+
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 

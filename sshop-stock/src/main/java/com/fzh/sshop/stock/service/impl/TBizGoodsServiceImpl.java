@@ -8,10 +8,13 @@ import com.fzh.sshop.request.SuperResponse;
 import com.fzh.sshop.stock.entity.TBizBrand;
 import com.fzh.sshop.stock.entity.TBizGoods;
 import com.fzh.sshop.stock.entity.TBizGoodsPicture;
+import com.fzh.sshop.stock.mapper.TBizBrandMapper;
+import com.fzh.sshop.stock.mapper.TBizCategoryMapper;
 import com.fzh.sshop.stock.mapper.TBizGoodsMapper;
 import com.fzh.sshop.stock.req.GoodsInfoRequest;
 import com.fzh.sshop.stock.req.GoodsListRequest;
 import com.fzh.sshop.stock.req.GoodsRequest;
+import com.fzh.sshop.stock.service.TBizBrandService;
 import com.fzh.sshop.stock.service.TBizGoodsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fzh.sshop.utils.UUIDUtils;
@@ -36,7 +39,10 @@ public class TBizGoodsServiceImpl extends ServiceImpl<TBizGoodsMapper, TBizGoods
 
     @Autowired
     private TBizGoodsPictureServiceImpl goodsPictureService;
-
+    @Autowired
+    private TBizBrandMapper bizBrandMapper;
+    @Autowired
+    private TBizCategoryMapper bizCategoryMapper;
 
     @Override
     public SuperResponse list(GoodsListRequest request) {
@@ -64,6 +70,12 @@ public class TBizGoodsServiceImpl extends ServiceImpl<TBizGoodsMapper, TBizGoods
         Page<TBizGoods> pages = new Page<>(request.getPageNo(),request.getPageSize());
         IPage<TBizGoods> mapIPage = baseMapper.selectPage(pages, wrapper);
         List<TBizGoods> goods = mapIPage.getRecords();
+        for(TBizGoods g:goods){
+            //TODO 很有问题的代码 空指针等着你
+            g.setCategoryName(bizCategoryMapper.selectById(g.getCategoryId()).getCategoryName());
+            g.setBrandName(bizBrandMapper.selectById(g.getBrandId()).getBrandName());
+        }
+
         response.setItems(goods);
         response.setTotals(pages.getTotal());
         return response;
@@ -85,9 +97,7 @@ public class TBizGoodsServiceImpl extends ServiceImpl<TBizGoodsMapper, TBizGoods
     @Override
     @Transactional
     public SuperResponse insert(GoodsInfoRequest request) {
-        Lock lock = new ReentrantLock();
-        lock.lock();
-        try {
+
             SuperResponse response = new SuperResponse();
             TBizGoods goods = new TBizGoods();
             //TODO 商品编号生成需要修改 可使用redis,snowflake 等多种方案 可以自由选择 具体根据你的业务选型
@@ -131,17 +141,12 @@ public class TBizGoodsServiceImpl extends ServiceImpl<TBizGoodsMapper, TBizGoods
                 }
             }
             return response;
-        }finally {
-            lock.unlock();
-        }
 
     }
 
     @Override
     public SuperResponse update(GoodsInfoRequest request) {
-        Lock lock = new ReentrantLock();
-        lock.lock();
-        try {
+
             SuperResponse response = new SuperResponse();
             TBizGoods goods = new TBizGoods();
             //TODO 商品编号生成需要修改 可使用redis,snowflake 等多种方案 可以自由选择 具体根据你的业务选型
@@ -185,9 +190,7 @@ public class TBizGoodsServiceImpl extends ServiceImpl<TBizGoodsMapper, TBizGoods
                 }
             }
             return response;
-        }finally {
-            lock.unlock();
-        }
+
     }
 
 

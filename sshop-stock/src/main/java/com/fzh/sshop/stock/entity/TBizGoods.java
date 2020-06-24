@@ -34,8 +34,14 @@ public class TBizGoods implements Serializable {
     @ApiModelProperty(value = "分类ID")
     private Integer categoryId;
 
+    @TableField(exist = false)
+    private String categoryName;
+
     @ApiModelProperty(value = "品牌ID")
     private Integer brandId;
+
+    @TableField(exist = false)
+    private String brandName;
 
     @ApiModelProperty(value = "商户编号")
     private String merchantNo;

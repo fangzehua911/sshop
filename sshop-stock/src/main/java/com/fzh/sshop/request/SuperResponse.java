@@ -13,52 +13,5 @@ public class SuperResponse<T>{
     private List<T> items;
     private Long totals;
     private Long time = System.currentTimeMillis();
-    private String token;
-    public Long getTime() {
-        return time;
-    }
 
-    public void setTime(Long time) {
-        this.time = time;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getItem() {
-        return item;
-    }
-
-    public void setItem(T item) {
-        this.item = item;
-    }
-
-    public List<T> getItems() {
-        return items;
-    }
-
-    public void setItems(List<T> items) {
-        this.items = items;
-    }
-
-    public Long getTotals() {
-        return totals;
-    }
-
-    public void setTotals(Long totals) {
-        this.totals = totals;
-    }
 }
